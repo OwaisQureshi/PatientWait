@@ -1,5 +1,8 @@
 ﻿$(document).ready(function () {
     initAutocomplete();
+    $("#btnInfo").click(function () {
+        $("#clinicslist").show();
+    });
 });
 
 
@@ -13,6 +16,16 @@ function initAutocomplete() {
 
     // Create the search box and link it to the UI element.
     var input = $('#txtSearch').get()[0];//document.getElementById('txtSearch');
+    //alert($('txtSearch:textbox').val());
+    //var value2 = document.getElementById('<%=txtSearch.ClientID%>').value;
+    //alert(value2);
+    //if ($('input:textbox').val() != "")
+    //{
+    //    alert($('input:textbox').val());
+    //    clinicslist.style.display = 'inline-block';
+    //    clinicslist.style.visibility = 'visible';
+    //}
+
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
@@ -69,4 +82,6 @@ function initAutocomplete() {
         });
         map.fitBounds(bounds);
     });
+    
+    
 }
