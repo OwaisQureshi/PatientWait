@@ -175,7 +175,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DBLayer\db.cs" />
+    <Compile Include="DBLayer\POCO\Doctor.cs" />
     <Compile Include="DBLayer\POCO\Clinic.cs" />
+    <Compile Include="DBLayer\POCO\UserSearch.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
