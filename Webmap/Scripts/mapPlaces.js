@@ -1,7 +1,14 @@
 ﻿$(document).ready(function () {
     initAutocomplete();
-    $("#btnInfo").click(function () {
+    $("#btnClinicsInfo").click(function () {
         $("#clinicslist").show();
+        $("#clinicdetails").show();
+    });
+    $("#btnDoctorsInfo").click(function () {        
+        $("#clinicslist").hide();
+        $("#doctorlist").show();
+        $("#clinicdetails").show();
+        doctorlist
     });
 });
 

@@ -94,7 +94,7 @@
                         </tbody>
                     </table>
                 </div>
-            </td>
+            </td>            
             <td width="40%">
                 <div id="row2"><input id="txtSearch" class="controls" type="text" placeholder="Search Box"></div>
             </td>
@@ -103,22 +103,88 @@
             </td>
        </tr>
        <tr>
-            <td>
+           <td width="100%">
+               <div id="clinicdetails" style="overflow:scroll; height: 50px; width: 800px; display: none;">
+                   Toronto General Hospital - Cancer curing Doctor List - Location Toronto
+                   200 Elizabeth St, Toronto, ON M5G 2C4
+                   patientrelations@uhn.ca
+                   +1-(416) 340-4800
+                   Open 24 hours
+               </div>
+           </td>
+       </tr>
+        <tr>
+            <td width="100%">
+                <<div id="doctorlist" style="overflow:scroll; height: 210px; width: 800px; display: none; ">
+                    <p>The table displays doctors information along with correct operating hours.</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Doctor Name</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Contact Details</th>
+                                <th>Operating Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Doctor Etedal Mohammad Hifzi Aamri</td>
+                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                <td>patientrelations@uhn.ca</td>
+                                <td>+1-(416) 340-4800</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Mary-Anne Wilhelmina</td>
+                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                <td>patientrelations@uhn.ca</td>
+                                <td>+1-(416) 340-4800</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Caldwell, Forrest Harvey</td>
+                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                <td>patientrelations@uhn.ca</td>
+                                <td>+1-(416) 340-4800</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Chang, Li-Hsin</td>
+                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                <td>patientrelations@uhn.ca</td>
+                                <td>+1-(416) 340-4800</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Bakker, Dorothy Jane</td>
+                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                <td>patientrelations@uhn.ca</td>
+                                <td>+1-(416) 340-4800</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr> 
+       <tr>
+            <td width="100%">
                 <button type="button" id="btnShowPopup" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>
-                <button type="button" id ="btnInfo"class="btn btn-info">Info</button>
-                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" id ="btnClinicsInfo" class="btn btn-info">ClinicsInfo</button>
+                <button type="button" id ="btnDoctorsInfo" class="btn btn-primary">DoctorsInfo</button>
                 <a href="#" class="btn btn-success btn-lg">
                     <span class="glyphicon glyphicon-print"></span> Print
                 </a>
             </td>
         </tr>
         <tr>
-            <td>
+            <td width="100%">
                 <a href="#">News <span class="badge">5</span></a><br>
                 <a href="#">Comments <span class="badge">10</span></a><br>
                 <a href="#">Updates <span class="badge">2</span></a>
             </td>
-        </tr>  
+        </tr>         
     </table>
 </div>
 <!-- Modal -->
