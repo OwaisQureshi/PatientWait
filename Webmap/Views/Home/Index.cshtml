@@ -15,22 +15,21 @@
             background-color: white;
         }
 
-        #txtSearch {
-            height: 40px;
-            width: 200px;
-        }
-    </style>
-}
+    #txtSearch{
+        height:40px;
+        width:200px;
+    }
+</style>
+    }
 <br />
 <!-- This is the div that will contain the Google Map -->
 <div id="main">
     <table>
         <tr>
-            <td>
+            <td width="100%">
                 <div id="title">
                     <h2>Patient No Wait Web App</h2>
-                    <p>
-                        Automate the appointment system by providing following advantages,
+                    <p> Automate the appointment system by providing following advantages,
                         For Patients:
                         •	Give estimates of waiting lines from travelling time till the appointment turn.
                         •	Provide user based rating and reviews to make the right clinic decision.
@@ -40,9 +39,9 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <div id="clinicslist" style="height: 210px; width: 800px">
-                    <h2>Clinics List Table</h2>
+            <td width="60%">
+                <div id="clinicslist" style="overflow:scroll; height: 310px; width: 800px; display: none; ">
+                    <h2>Clinics List - Location Toronto</h2>
                     <p>The table displays Nearest clinics information along with correct operating hours.</p>
                     <table class="table">
                         <thead>
@@ -56,46 +55,118 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Cloud Care Clinics</td>
-                                <td>Toronto</td>
-                                <td>john@example.com</td>
-                                <td>+1-807-355-3902</td>
-                                <td>8AM to 8PM</td>
+                                <td>Toronto General Hospital</td>
+                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                <td>patientrelations@uhn.ca</td>
+                                <td>+1-(416) 340-4800</td>
+                                <td>Open 24 hours</td>
                             </tr>
                             <tr>
-                                <td>Cloud Care Clinics2</td>
-                                <td>Toronto</td>
-                                <td>mary@example.com</td>
-                                <td>+1-807-355-3902</td>
-                                <td>8AM to 10PM</td>
+                                <td>Sunnybrook Health Sciences Centre</td>
+                                <td>2075 Bayview Ave, Toronto, ON M4N 3M5</td>
+                                <td>questions@sunnybrook.ca</td>
+                                <td>+1-(416) 480-6100</td>
+                                <td>9:00 am to 4:30 pm</td>
                             </tr>
                             <tr>
-                                <td>Cloud Care Clinics3</td>
-                                <td>Toronto</td>
-                                <td>july@example.com</td>
-                                <td>+1-807-355-3902</td>
-                                <td>7AM to 8PM</td>
+                                <td>St Michael's Hospital</td>
+                                <td>30 Bond St, Toronto, ON M5B 1W8</td>
+                                <td>canzians@smh.ca</td>
+                                <td>+1-(416) 360-4000</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>The Scarborough Hospital</td>
+                                <td>3050 Lawrence Ave E, Scarborough, ON M1P 2V5</td>
+                                <td>foundation@tsh.to</td>
+                                <td>+1-(416) 438-2911</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>North York General Hospital</td>
+                                <td>4001 Leslie St, North York, ON M2K 1E1</td>
+                                <td>hr@nygh.on.ca</td>
+                                <td>+1-(416) 756-6000</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>            
+            <td width="40%">
+                <div id="row2"><input id="txtSearch" class="controls" type="text" placeholder="Search Box"></div>
+            </td>
+            <td width="40%">
+                <div id="map_canvas" style="height: 350px; width: 500px"></div>
+            </td>
+       </tr>
+       <tr>
+           <td width="100%">
+               <div id="clinicdetails" style="overflow:scroll; height: 50px; width: 800px; display: none;">
+                   Toronto General Hospital - Cancer curing Doctor List - Location Toronto
+                   200 Elizabeth St, Toronto, ON M5G 2C4
+                   patientrelations@uhn.ca
+                   +1-(416) 340-4800
+                   Open 24 hours
+               </div>
+           </td>
+       </tr>
+        <tr>
+            <td width="100%">
+                <<div id="doctorlist" style="overflow:scroll; height: 210px; width: 800px; display: none; ">
+                    <p>The table displays doctors information along with correct operating hours.</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Doctor Name</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Contact Details</th>
+                                <th>Operating Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Doctor Etedal Mohammad Hifzi Aamri</td>
+                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                <td>patientrelations@uhn.ca</td>
+                                <td>+1-(416) 340-4800</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Mary-Anne Wilhelmina</td>
+                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                <td>patientrelations@uhn.ca</td>
+                                <td>+1-(416) 340-4800</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Caldwell, Forrest Harvey</td>
+                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                <td>patientrelations@uhn.ca</td>
+                                <td>+1-(416) 340-4800</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Chang, Li-Hsin</td>
+                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                <td>patientrelations@uhn.ca</td>
+                                <td>+1-(416) 340-4800</td>
+                                <td>Open 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Bakker, Dorothy Jane</td>
+                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                <td>patientrelations@uhn.ca</td>
+                                <td>+1-(416) 340-4800</td>
+                                <td>Open 24 hours</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </td>
-            <td>
-                <div id="row2"><input id="txtSearch" class="controls" type="text" placeholder="Search Box"></div>
-                <form>
-                    <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                        </div>
-                    </div>
-                </form>
-            </td>
-            <td>
-                <div id="map_canvas" style="height: 250px; width: 300px"></div>
-            </td>
-        </tr>
-        <tr>
+       </tr>
+       <tr>
             <td>
                 <button type="button" class="btn btn-default">Default</button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>
@@ -113,12 +184,12 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td width="100%">
                 <a href="#">News <span class="badge">5</span></a><br>
                 <a href="#">Comments <span class="badge">10</span></a><br>
                 <a href="#">Updates <span class="badge">2</span></a>
             </td>
-        </tr>
+        </tr>  
     </table>
 </div>
 <!-- Modal -->
