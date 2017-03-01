@@ -7,7 +7,7 @@
             max-width: none;
         }
 
-        <!-- This css is to give a nice big popup "info window" when a marker is clicked on the map -->
+        
         .infoDiv {
             height: 200px;
             width: 300px;
@@ -129,40 +129,12 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Doctor Etedal Mohammad Hifzi Aamri</td>
+                                <td>Dr Etedal Mohammad Hifzi Aamri</td>
                                 <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
                                 <td>patientrelations@uhn.ca</td>
                                 <td>+1-(416) 340-4800</td>
                                 <td>Open 24 hours</td>
-                            </tr>
-                            <tr>
-                                <td>Dr. Mary-Anne Wilhelmina</td>
-                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                <td>patientrelations@uhn.ca</td>
-                                <td>+1-(416) 340-4800</td>
-                                <td>Open 24 hours</td>
-                            </tr>
-                            <tr>
-                                <td>Dr. Caldwell, Forrest Harvey</td>
-                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                <td>patientrelations@uhn.ca</td>
-                                <td>+1-(416) 340-4800</td>
-                                <td>Open 24 hours</td>
-                            </tr>
-                            <tr>
-                                <td>Dr. Chang, Li-Hsin</td>
-                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                <td>patientrelations@uhn.ca</td>
-                                <td>+1-(416) 340-4800</td>
-                                <td>Open 24 hours</td>
-                            </tr>
-                            <tr>
-                                <td>Dr. Bakker, Dorothy Jane</td>
-                                <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                <td>patientrelations@uhn.ca</td>
-                                <td>+1-(416) 340-4800</td>
-                                <td>Open 24 hours</td>
-                            </tr>
+                            </tr>                            
                         </tbody>
                     </table>
                 </div>
@@ -186,6 +158,10 @@
             </td>
         </tr>
     </table>
+    <div>
+        @Html.ActionLink("List of Clinics", "Index", "CLINICs")<br />
+        @Html.ActionLink("List of Doctors", "Index", "DOCTORs")
+    </div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
