@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Webmap.Models.CLINIC>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>CLINIC LIST</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        @*<th>
+
+            @Html.DisplayNameFor(model => model.CLINICGoogleUID)
+        </th>*@
+        <th>
+            @*@Html.DisplayNameFor(model => model.ClinicName)*@
+            Clinic
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.CLINICADDRESS)*@
+            Address
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ClinicEmail)*@
+            Email
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ClinicTelePhone)*@
+            Telephone
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.CLINICWorkingHours)*@
+            WorkingHours
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ClinicWebsite)*@
+            WebSite
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.USERID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USERNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USERSearchDATETIME)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CLINICGoogleUID)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.ClinicName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLINICADDRESS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClinicEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClinicTelePhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLINICWorkingHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClinicWebsite)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.USERID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USERNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USERSearchDATETIME)
+        </td>*@
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.ClinicID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ClinicID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClinicID })*@
+            @Html.ActionLink("Details", "Details", new { id = item.ClinicID })
+        </td>
+    </tr>
+}
+
+</table>

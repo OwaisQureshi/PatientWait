@@ -1,0 +1,132 @@
+﻿@model Webmap.Models.CLINIC
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>CLINIC Details</h2>
+
+<div>
+    @*<h4>CLINIC</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.CLINICGoogleUID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLINICGoogleUID)
+        </dd>*@
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ClinicName)*@
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClinicName)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.CLINICADDRESS)*@
+            Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLINICADDRESS)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ClinicEmail)*@
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClinicEmail)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ClinicTelePhone)*@
+            Telephone
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClinicTelePhone)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.CLINICWorkingHours)*@
+            WorkingHours
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLINICWorkingHours)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ClinicWebsite)*@
+            Website
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClinicWebsite)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.USERID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USERID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USERNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USERNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USERSearchDATETIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USERSearchDATETIME)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClinicID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Doctor Name
+        </th>
+        <th>
+            Telephone
+        </th>
+        <th>
+            Working Hours
+        </th>
+    </tr>
+
+    @foreach (var item in Model.DOCTORS)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOCTORNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOCTORTelePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOCTORWorkingHours)
+            </td>
+        </tr>
+    }
+</table>
