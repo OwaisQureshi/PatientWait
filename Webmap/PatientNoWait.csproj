@@ -317,6 +317,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="DBScripts\Data.xlsx" />
+    <Content Include="DBScripts\DBPATIENTNOWAIT.bak" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\home\index.js" />
     <Content Include="Scripts\home\mapPlaces.js" />
