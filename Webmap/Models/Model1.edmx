@@ -84,9 +84,9 @@
       <Schema Namespace="DBPATIENTNOWAITDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DBPATIENTNOWAITDataEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="DBPATIENTNOWAITDataModel.sysdiagram" />
-          <EntitySet Name="CLINICS" EntityType="DBPATIENTNOWAITDataModel.CLINIC" />
           <EntitySet Name="DOCTORS" EntityType="DBPATIENTNOWAITDataModel.DOCTOR" />
           <EntitySet Name="USERs" EntityType="DBPATIENTNOWAITDataModel.USER" />
+          <EntitySet Name="CLINICS" EntityType="DBPATIENTNOWAITDataModel.CLINIC" />
           <AssociationSet Name="FK__DOCTORS__ClinicI__25869641" Association="DBPATIENTNOWAITDataModel.FK__DOCTORS__ClinicI__25869641">
             <End Role="CLINIC" EntitySet="CLINICS" />
             <End Role="DOCTOR" EntitySet="DOCTORS" />
@@ -101,23 +101,6 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="CLINIC">
-          <Key>
-            <PropertyRef Name="ClinicID" />
-          </Key>
-          <Property Name="ClinicID" Type="Int32" Nullable="false" />
-          <Property Name="CLINICGoogleUID" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="ClinicName" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="CLINICADDRESS" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="ClinicEmail" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="ClinicTelePhone" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="CLINICWorkingHours" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="ClinicWebsite" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="USERID" Type="Int32" />
-          <Property Name="USERNAME" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="USERSearchDATETIME" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="DOCTORS" Relationship="DBPATIENTNOWAITDataModel.FK__DOCTORS__ClinicI__25869641" FromRole="CLINIC" ToRole="DOCTOR" />
         </EntityType>
         <EntityType Name="DOCTOR">
           <Key>
@@ -144,6 +127,23 @@
           <Property Name="USERID" Type="Int32" Nullable="false" />
           <Property Name="USERNAME" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
           <Property Name="USERLOGINDATETIME" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="CLINIC">
+          <Key>
+            <PropertyRef Name="ClinicID" />
+          </Key>
+          <Property Name="ClinicID" Type="Int32" Nullable="false" />
+          <Property Name="CLINICGoogleUID" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="ClinicName" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="CLINICADDRESS" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="ClinicEmail" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="ClinicTelePhone" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="CLINICWorkingHours" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="ClinicWebsite" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="USERID" Type="Int32" />
+          <Property Name="USERNAME" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="USERSearchDATETIME" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DOCTORS" Relationship="DBPATIENTNOWAITDataModel.FK__DOCTORS__ClinicI__25869641" FromRole="CLINIC" ToRole="DOCTOR" />
         </EntityType>
         <Association Name="FK__DOCTORS__ClinicI__25869641">
           <End Type="DBPATIENTNOWAITDataModel.CLINIC" Role="CLINIC" Multiplicity="0..1" />
@@ -174,23 +174,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CLINICS">
-            <EntityTypeMapping TypeName="DBPATIENTNOWAITDataModel.CLINIC">
-              <MappingFragment StoreEntitySet="CLINICS">
-                <ScalarProperty Name="USERSearchDATETIME" ColumnName="USERSearchDATETIME" />
-                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
-                <ScalarProperty Name="USERID" ColumnName="USERID" />
-                <ScalarProperty Name="ClinicWebsite" ColumnName="ClinicWebsite" />
-                <ScalarProperty Name="CLINICWorkingHours" ColumnName="CLINICWorkingHours" />
-                <ScalarProperty Name="ClinicTelePhone" ColumnName="ClinicTelePhone" />
-                <ScalarProperty Name="ClinicEmail" ColumnName="ClinicEmail" />
-                <ScalarProperty Name="CLINICADDRESS" ColumnName="CLINICADDRESS" />
-                <ScalarProperty Name="ClinicName" ColumnName="ClinicName" />
-                <ScalarProperty Name="CLINICGoogleUID" ColumnName="CLINICGoogleUID" />
-                <ScalarProperty Name="ClinicID" ColumnName="ClinicID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="DOCTORS">
             <EntityTypeMapping TypeName="DBPATIENTNOWAITDataModel.DOCTOR">
               <MappingFragment StoreEntitySet="DOCTORS">
@@ -215,6 +198,23 @@
                 <ScalarProperty Name="USERLOGINDATETIME" ColumnName="USERLOGINDATETIME" />
                 <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
                 <ScalarProperty Name="USERID" ColumnName="USERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLINICS">
+            <EntityTypeMapping TypeName="DBPATIENTNOWAITDataModel.CLINIC">
+              <MappingFragment StoreEntitySet="CLINICS">
+                <ScalarProperty Name="USERSearchDATETIME" ColumnName="USERSearchDATETIME" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="ClinicWebsite" ColumnName="ClinicWebsite" />
+                <ScalarProperty Name="CLINICWorkingHours" ColumnName="CLINICWorkingHours" />
+                <ScalarProperty Name="ClinicTelePhone" ColumnName="ClinicTelePhone" />
+                <ScalarProperty Name="ClinicEmail" ColumnName="ClinicEmail" />
+                <ScalarProperty Name="CLINICADDRESS" ColumnName="CLINICADDRESS" />
+                <ScalarProperty Name="ClinicName" ColumnName="ClinicName" />
+                <ScalarProperty Name="CLINICGoogleUID" ColumnName="CLINICGoogleUID" />
+                <ScalarProperty Name="ClinicID" ColumnName="ClinicID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

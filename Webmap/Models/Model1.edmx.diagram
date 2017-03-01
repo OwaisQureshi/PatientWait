@@ -6,9 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="f3b447d5386f412291ef87db1c898789" Name="Diagram1">
         <EntityTypeShape EntityType="DBPATIENTNOWAITDataModel.sysdiagram" Width="1.5" PointX="3.375" PointY="4.75" />
-        <EntityTypeShape EntityType="DBPATIENTNOWAITDataModel.CLINIC" Width="1.5" PointX="5.5" PointY="1" />
         <EntityTypeShape EntityType="DBPATIENTNOWAITDataModel.DOCTOR" Width="1.5" PointX="7.75" PointY="0.875" />
         <EntityTypeShape EntityType="DBPATIENTNOWAITDataModel.USER" Width="1.5" PointX="0.5" PointY="0.625" />
+        <EntityTypeShape EntityType="DBPATIENTNOWAITDataModel.CLINIC" Width="1.5" PointX="5.5" PointY="0.75" />
         <AssociationConnector Association="DBPATIENTNOWAITDataModel.FK__DOCTORS__ClinicI__25869641" />
       </Diagram>
     </edmx:Diagrams>
