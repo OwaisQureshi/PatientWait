@@ -218,9 +218,9 @@
           <Property Name="USERSearchDATETIME" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="DOCTOR" Relationship="DBPATIENTNOWAITDataModel.FK__DOCTORSUS__DOCTO__37A5467C" FromRole="DOCTORSUSERRATING" ToRole="DOCTOR" />
         </EntityType>
-        <Association Name="FK__DOCTORSUS__DOCTO__37A5467C">
-          <End Type="DBPATIENTNOWAITDataModel.DOCTOR" Role="DOCTOR" Multiplicity="0..1" />
-          <End Type="DBPATIENTNOWAITDataModel.DOCTORSUSERRATING" Role="DOCTORSUSERRATING" Multiplicity="*" />
+        <Association Name="FK__DOCTORS__ClinicI__25869641">
+          <End Type="DBPATIENTNOWAITDataModel.CLINIC" Role="CLINIC" Multiplicity="0..1" />
+          <End Type="DBPATIENTNOWAITDataModel.DOCTOR" Role="DOCTOR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DOCTOR">
               <PropertyRef Name="DOCTORID" />
@@ -250,7 +250,6 @@
           <EntitySetMapping Name="CLINICS">
             <EntityTypeMapping TypeName="DBPATIENTNOWAITDataModel.CLINIC">
               <MappingFragment StoreEntitySet="CLINICS">
-                <ScalarProperty Name="CLINICLOCATION" ColumnName="CLINICLOCATION" />
                 <ScalarProperty Name="USERSearchDATETIME" ColumnName="USERSearchDATETIME" />
                 <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
                 <ScalarProperty Name="USERID" ColumnName="USERID" />
