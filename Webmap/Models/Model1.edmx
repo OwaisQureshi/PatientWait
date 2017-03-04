@@ -119,8 +119,9 @@
       <Schema Namespace="DBPATIENTNOWAITDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DBPATIENTNOWAITDataEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="DBPATIENTNOWAITDataModel.sysdiagram" />
-          <EntitySet Name="CLINICS" EntityType="DBPATIENTNOWAITDataModel.CLINIC" />
           <EntitySet Name="DOCTORS" EntityType="DBPATIENTNOWAITDataModel.DOCTOR" />
+          <EntitySet Name="USERs" EntityType="DBPATIENTNOWAITDataModel.USER" />
+          <EntitySet Name="CLINICS" EntityType="DBPATIENTNOWAITDataModel.CLINIC" />
           <AssociationSet Name="FK__DOCTORS__ClinicI__25869641" Association="DBPATIENTNOWAITDataModel.FK__DOCTORS__ClinicI__25869641">
             <End Role="CLINIC" EntitySet="CLINICS" />
             <End Role="DOCTOR" EntitySet="DOCTORS" />
@@ -306,6 +307,23 @@
                 <ScalarProperty Name="DOCTORNAME" ColumnName="DOCTORNAME" />
                 <ScalarProperty Name="DOCTORID" ColumnName="DOCTORID" />
                 <ScalarProperty Name="USERRATINGID" ColumnName="USERRATINGID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLINICS">
+            <EntityTypeMapping TypeName="DBPATIENTNOWAITDataModel.CLINIC">
+              <MappingFragment StoreEntitySet="CLINICS">
+                <ScalarProperty Name="USERSearchDATETIME" ColumnName="USERSearchDATETIME" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="ClinicWebsite" ColumnName="ClinicWebsite" />
+                <ScalarProperty Name="CLINICWorkingHours" ColumnName="CLINICWorkingHours" />
+                <ScalarProperty Name="ClinicTelePhone" ColumnName="ClinicTelePhone" />
+                <ScalarProperty Name="ClinicEmail" ColumnName="ClinicEmail" />
+                <ScalarProperty Name="CLINICADDRESS" ColumnName="CLINICADDRESS" />
+                <ScalarProperty Name="ClinicName" ColumnName="ClinicName" />
+                <ScalarProperty Name="CLINICGoogleUID" ColumnName="CLINICGoogleUID" />
+                <ScalarProperty Name="ClinicID" ColumnName="ClinicID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
