@@ -29,5 +29,6 @@ namespace Webmap.Models
         public virtual DbSet<CLINIC> CLINICS { get; set; }
         public virtual DbSet<DOCTOR> DOCTORS { get; set; }
         public virtual DbSet<USER> USERs { get; set; }
+        public virtual DbSet<DOCTORSUSERRATING> DOCTORSUSERRATINGS { get; set; }
     }
 }

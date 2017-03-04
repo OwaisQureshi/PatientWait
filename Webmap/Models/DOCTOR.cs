@@ -14,6 +14,12 @@ namespace Webmap.Models
     
     public partial class DOCTOR
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DOCTOR()
+        {
+            this.DOCTORSUSERRATINGS = new HashSet<DOCTORSUSERRATING>();
+        }
+    
         public int DOCTORID { get; set; }
         public string DOCTORNAME { get; set; }
         public string DOCTORADDRESS { get; set; }
@@ -28,5 +34,7 @@ namespace Webmap.Models
         public System.DateTime USERSearchDATETIME { get; set; }
     
         public virtual CLINIC CLINIC { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DOCTORSUSERRATING> DOCTORSUSERRATINGS { get; set; }
     }
 }

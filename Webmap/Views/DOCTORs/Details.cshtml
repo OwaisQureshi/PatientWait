@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>DOCTOR Details</h2>
 
 <div>
     <h4>DOCTOR</h4>
@@ -50,13 +50,13 @@
             @Html.DisplayFor(model => model.DOCTORWorkingHours)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.CLINICGoogleUID)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CLINICGoogleUID)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.ClinicName)
@@ -66,7 +66,7 @@
             @Html.DisplayFor(model => model.ClinicName)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.USERID)
         </dt>
 
@@ -96,11 +96,39 @@
 
         <dd>
             @Html.DisplayFor(model => model.CLINIC.CLINICGoogleUID)
-        </dd>
+        </dd>*@
 
     </dl>
 </div>
-<p>
+@*<p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.DOCTORID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    @Html.ActionLink("Back to List", "Index")  
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            Doctor Name
+        </th>
+        <th>
+            Patient Comments
+        </th>
+        <th>
+            Back To Clinic Details
+        </th>
+    </tr>
+
+    @foreach (var item in Model.DOCTORSUSERRATINGS)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOCTORNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.USERCOMMENTS)
+            </td>
+            <td>
+                @Html.ActionLink("Back To Clinics Details", "Details" + "/" + item.ClinicID, "CLINICs")
+            </td>
+        </tr>
+    }
+</table>

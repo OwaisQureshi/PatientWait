@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CLINICsController.cs" />
     <Compile Include="Controllers\DOCTORsController.cs" />
+    <Compile Include="Controllers\DOCTORSUSERRATINGsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\USERsController.cs" />
@@ -191,6 +192,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DOCTOR.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DOCTORSUSERRATING.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -288,6 +292,11 @@
     <Content Include="DBScripts\CLINICS.sql" />
     <Content Include="DBScripts\DATABASE.sql" />
     <Content Include="DBScripts\DOCTORS.sql" />
+    <Content Include="DBScripts\DOCTORSUSERRATINGS.sql" />
+    <Content Include="DBScripts\MIDTERM2\CLINICS.sql" />
+    <Content Include="DBScripts\MIDTERM2\DATABASE.sql" />
+    <Content Include="DBScripts\MIDTERM2\DOCTORS.sql" />
+    <Content Include="DBScripts\MIDTERM2\USER.sql" />
     <Content Include="DBScripts\USER.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -316,8 +325,10 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="DBScripts\Data.xlsx" />
+    <Content Include="DBScripts\MIDTERM2\Data.xlsx" />
+    <Content Include="DBScripts\MIDTERM2\DBPATIENTNOWAIT_MIDTERM2.bak" />
     <Content Include="DBScripts\DBPATIENTNOWAIT.bak" />
+    <Content Include="DBScripts\Data.xlsx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\home\index.js" />
     <Content Include="Scripts\home\mapPlaces.js" />
@@ -384,6 +395,11 @@
     <Content Include="Views\DOCTORs\Details.cshtml" />
     <Content Include="Views\DOCTORs\Edit.cshtml" />
     <Content Include="Views\DOCTORs\Index.cshtml" />
+    <Content Include="Views\DOCTORSUSERRATINGs\Create.cshtml" />
+    <Content Include="Views\DOCTORSUSERRATINGs\Delete.cshtml" />
+    <Content Include="Views\DOCTORSUSERRATINGs\Details.cshtml" />
+    <Content Include="Views\DOCTORSUSERRATINGs\Edit.cshtml" />
+    <Content Include="Views\DOCTORSUSERRATINGs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -394,7 +410,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Webmap.Models.DOCTORSUSERRATING>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DOCTORNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClinicName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USERID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USERNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USERCOMMENTS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USERSearchDATETIME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOCTOR.DOCTORNAME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOCTORNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClinicName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USERID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USERNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USERCOMMENTS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USERSearchDATETIME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOCTOR.DOCTORNAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.USERRATINGID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.USERRATINGID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.USERRATINGID })
+        </td>
+    </tr>
+}
+
+</table>

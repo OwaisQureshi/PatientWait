@@ -113,6 +113,9 @@
         <th>
             Working Hours
         </th>
+        <th>
+            Patient Comments
+        </th>
     </tr>
 
     @foreach (var item in Model.DOCTORS)
@@ -127,6 +130,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.DOCTORWorkingHours)
             </td>
+            <td>
+                @*@Html.ActionLink("List of Doctors", "Index", "DOCTORs")*@
+                @Html.ActionLink("Doctors ReViews", "Details" + "/" + item.DOCTORID, "DOCTORs")                
+            </td>
         </tr>
     }
 </table>
+
+

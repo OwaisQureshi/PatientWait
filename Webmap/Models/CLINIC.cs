@@ -31,6 +31,7 @@ namespace Webmap.Models
         public Nullable<int> USERID { get; set; }
         public string USERNAME { get; set; }
         public System.DateTime USERSearchDATETIME { get; set; }
+        public string CLINICLOCATION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DOCTOR> DOCTORS { get; set; }

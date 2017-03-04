@@ -10,6 +10,7 @@
             <PropertyRef Name="ClinicID" />
           </Key>
           <Property Name="ClinicID" Type="int" Nullable="false" />
+          <Property Name="CLINICLOCATION" Type="varchar" MaxLength="8000" />
           <Property Name="CLINICGoogleUID" Type="varchar" MaxLength="8000" />
           <Property Name="ClinicName" Type="varchar" MaxLength="8000" />
           <Property Name="CLINICADDRESS" Type="varchar" MaxLength="8000" />
@@ -38,6 +39,20 @@
           <Property Name="USERNAME" Type="varchar" MaxLength="8000" />
           <Property Name="USERSearchDATETIME" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="DOCTORSUSERRATINGS">
+          <Key>
+            <PropertyRef Name="USERRATINGID" />
+          </Key>
+          <Property Name="USERRATINGID" Type="int" Nullable="false" />
+          <Property Name="DOCTORID" Type="int" />
+          <Property Name="DOCTORNAME" Type="varchar" MaxLength="8000" />
+          <Property Name="ClinicID" Type="int" />
+          <Property Name="ClinicName" Type="varchar" MaxLength="8000" />
+          <Property Name="USERID" Type="int" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="8000" />
+          <Property Name="USERCOMMENTS" Type="varchar" MaxLength="8000" />
+          <Property Name="USERSearchDATETIME" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -55,6 +70,9 @@
           <Property Name="USERID" Type="int" Nullable="false" />
           <Property Name="USERNAME" Type="varchar" MaxLength="8000" />
           <Property Name="USERLOGINDATETIME" Type="datetime" Nullable="false" />
+          <Property Name="USERLOCATION" Type="varchar" MaxLength="8000" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="8000" />
+          <Property Name="PHONE" Type="varchar" MaxLength="8000" />
         </EntityType>
         <Association Name="FK__DOCTORS__ClinicI__25869641">
           <End Role="CLINICS" Type="Self.CLINICS" Multiplicity="0..1" />
@@ -68,14 +86,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__DOCTORSUS__DOCTO__37A5467C">
+          <End Role="DOCTORS" Type="Self.DOCTORS" Multiplicity="0..1" />
+          <End Role="DOCTORSUSERRATINGS" Type="Self.DOCTORSUSERRATINGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCTORS">
+              <PropertyRef Name="DOCTORID" />
+            </Principal>
+            <Dependent Role="DOCTORSUSERRATINGS">
+              <PropertyRef Name="DOCTORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DBPATIENTNOWAITDataModelStoreContainer">
           <EntitySet Name="CLINICS" EntityType="Self.CLINICS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DOCTORS" EntityType="Self.DOCTORS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOCTORSUSERRATINGS" EntityType="Self.DOCTORSUSERRATINGS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__DOCTORS__ClinicI__25869641" Association="Self.FK__DOCTORS__ClinicI__25869641">
             <End Role="CLINICS" EntitySet="CLINICS" />
             <End Role="DOCTORS" EntitySet="DOCTORS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOCTORSUS__DOCTO__37A5467C" Association="Self.FK__DOCTORSUS__DOCTO__37A5467C">
+            <End Role="DOCTORS" EntitySet="DOCTORS" />
+            <End Role="DOCTORSUSERRATINGS" EntitySet="DOCTORSUSERRATINGS" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -86,10 +121,15 @@
           <EntitySet Name="sysdiagrams" EntityType="DBPATIENTNOWAITDataModel.sysdiagram" />
           <EntitySet Name="CLINICS" EntityType="DBPATIENTNOWAITDataModel.CLINIC" />
           <EntitySet Name="DOCTORS" EntityType="DBPATIENTNOWAITDataModel.DOCTOR" />
-          <EntitySet Name="USERs" EntityType="DBPATIENTNOWAITDataModel.USER" />
           <AssociationSet Name="FK__DOCTORS__ClinicI__25869641" Association="DBPATIENTNOWAITDataModel.FK__DOCTORS__ClinicI__25869641">
             <End Role="CLINIC" EntitySet="CLINICS" />
             <End Role="DOCTOR" EntitySet="DOCTORS" />
+          </AssociationSet>
+          <EntitySet Name="USERs" EntityType="DBPATIENTNOWAITDataModel.USER" />
+          <EntitySet Name="DOCTORSUSERRATINGS" EntityType="DBPATIENTNOWAITDataModel.DOCTORSUSERRATING" />
+          <AssociationSet Name="FK__DOCTORSUS__DOCTO__37A5467C" Association="DBPATIENTNOWAITDataModel.FK__DOCTORSUS__DOCTO__37A5467C">
+            <End Role="DOCTOR" EntitySet="DOCTORS" />
+            <End Role="DOCTORSUSERRATING" EntitySet="DOCTORSUSERRATINGS" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="sysdiagram">
@@ -118,6 +158,7 @@
           <Property Name="USERNAME" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
           <Property Name="USERSearchDATETIME" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="DOCTORS" Relationship="DBPATIENTNOWAITDataModel.FK__DOCTORS__ClinicI__25869641" FromRole="CLINIC" ToRole="DOCTOR" />
+          <Property Name="CLINICLOCATION" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="DOCTOR">
           <Key>
@@ -136,14 +177,7 @@
           <Property Name="USERNAME" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
           <Property Name="USERSearchDATETIME" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="CLINIC" Relationship="DBPATIENTNOWAITDataModel.FK__DOCTORS__ClinicI__25869641" FromRole="DOCTOR" ToRole="CLINIC" />
-        </EntityType>
-        <EntityType Name="USER">
-          <Key>
-            <PropertyRef Name="USERID" />
-          </Key>
-          <Property Name="USERID" Type="Int32" Nullable="false" />
-          <Property Name="USERNAME" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="USERLOGINDATETIME" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DOCTORSUSERRATINGS" Relationship="DBPATIENTNOWAITDataModel.FK__DOCTORSUS__DOCTO__37A5467C" FromRole="DOCTOR" ToRole="DOCTORSUSERRATING" />
         </EntityType>
         <Association Name="FK__DOCTORS__ClinicI__25869641">
           <End Type="DBPATIENTNOWAITDataModel.CLINIC" Role="CLINIC" Multiplicity="0..1" />
@@ -154,6 +188,44 @@
             </Principal>
             <Dependent Role="DOCTOR">
               <PropertyRef Name="ClinicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="Int32" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="USERLOGINDATETIME" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="USERLOCATION" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DOCTORSUSERRATING">
+          <Key>
+            <PropertyRef Name="USERRATINGID" />
+          </Key>
+          <Property Name="USERRATINGID" Type="Int32" Nullable="false" />
+          <Property Name="DOCTORID" Type="Int32" />
+          <Property Name="DOCTORNAME" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="ClinicID" Type="Int32" />
+          <Property Name="ClinicName" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="USERID" Type="Int32" />
+          <Property Name="USERNAME" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="USERCOMMENTS" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="USERSearchDATETIME" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DOCTOR" Relationship="DBPATIENTNOWAITDataModel.FK__DOCTORSUS__DOCTO__37A5467C" FromRole="DOCTORSUSERRATING" ToRole="DOCTOR" />
+        </EntityType>
+        <Association Name="FK__DOCTORSUS__DOCTO__37A5467C">
+          <End Type="DBPATIENTNOWAITDataModel.DOCTOR" Role="DOCTOR" Multiplicity="0..1" />
+          <End Type="DBPATIENTNOWAITDataModel.DOCTORSUSERRATING" Role="DOCTORSUSERRATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCTOR">
+              <PropertyRef Name="DOCTORID" />
+            </Principal>
+            <Dependent Role="DOCTORSUSERRATING">
+              <PropertyRef Name="DOCTORID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -177,6 +249,7 @@
           <EntitySetMapping Name="CLINICS">
             <EntityTypeMapping TypeName="DBPATIENTNOWAITDataModel.CLINIC">
               <MappingFragment StoreEntitySet="CLINICS">
+                <ScalarProperty Name="CLINICLOCATION" ColumnName="CLINICLOCATION" />
                 <ScalarProperty Name="USERSearchDATETIME" ColumnName="USERSearchDATETIME" />
                 <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
                 <ScalarProperty Name="USERID" ColumnName="USERID" />
@@ -212,9 +285,27 @@
           <EntitySetMapping Name="USERs">
             <EntityTypeMapping TypeName="DBPATIENTNOWAITDataModel.USER">
               <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="USERLOCATION" ColumnName="USERLOCATION" />
                 <ScalarProperty Name="USERLOGINDATETIME" ColumnName="USERLOGINDATETIME" />
                 <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
                 <ScalarProperty Name="USERID" ColumnName="USERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCTORSUSERRATINGS">
+            <EntityTypeMapping TypeName="DBPATIENTNOWAITDataModel.DOCTORSUSERRATING">
+              <MappingFragment StoreEntitySet="DOCTORSUSERRATINGS">
+                <ScalarProperty Name="USERSearchDATETIME" ColumnName="USERSearchDATETIME" />
+                <ScalarProperty Name="USERCOMMENTS" ColumnName="USERCOMMENTS" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="ClinicName" ColumnName="ClinicName" />
+                <ScalarProperty Name="ClinicID" ColumnName="ClinicID" />
+                <ScalarProperty Name="DOCTORNAME" ColumnName="DOCTORNAME" />
+                <ScalarProperty Name="DOCTORID" ColumnName="DOCTORID" />
+                <ScalarProperty Name="USERRATINGID" ColumnName="USERRATINGID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

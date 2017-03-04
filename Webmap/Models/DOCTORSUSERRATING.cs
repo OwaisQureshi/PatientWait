@@ -12,13 +12,18 @@ namespace Webmap.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class USER
+    public partial class DOCTORSUSERRATING
     {
-        public int USERID { get; set; }
+        public int USERRATINGID { get; set; }
+        public Nullable<int> DOCTORID { get; set; }
+        public string DOCTORNAME { get; set; }
+        public Nullable<int> ClinicID { get; set; }
+        public string ClinicName { get; set; }
+        public Nullable<int> USERID { get; set; }
         public string USERNAME { get; set; }
-        public System.DateTime USERLOGINDATETIME { get; set; }
-        public string USERLOCATION { get; set; }
-        public string EMAIL { get; set; }
-        public string PHONE { get; set; }
+        public string USERCOMMENTS { get; set; }
+        public System.DateTime USERSearchDATETIME { get; set; }
+    
+        public virtual DOCTOR DOCTOR { get; set; }
     }
 }

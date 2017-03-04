@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>DOCTORS LIST</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -26,13 +26,13 @@
         <th>
             @Html.DisplayNameFor(model => model.DOCTORWorkingHours)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.CLINICGoogleUID)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.ClinicName)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.USERID)
         </th>
         <th>
@@ -44,7 +44,7 @@
         <th>
             @Html.DisplayNameFor(model => model.CLINIC.CLINICGoogleUID)
         </th>
-        <th></th>
+        <th></th>*@
     </tr>
 
 @foreach (var item in Model) {
@@ -64,13 +64,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.DOCTORWorkingHours)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.CLINICGoogleUID)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.ClinicName)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.USERID)
         </td>
         <td>
@@ -81,11 +81,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CLINIC.CLINICGoogleUID)
-        </td>
+        </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DOCTORID }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.DOCTORID }) |
             @Html.ActionLink("Details", "Details", new { id=item.DOCTORID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DOCTORID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.DOCTORID })*@
+            @Html.ActionLink("Details", "Details", new { id = item.DOCTORID })
         </td>
     </tr>
 }
