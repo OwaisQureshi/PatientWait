@@ -132,3 +132,44 @@
         </tr>
     }
 </table>
+<div>
+    <table>
+        <tr>
+            <td width="100%">
+                <button type="button" id="btnShowPopup" class="btn btn-primary" data-toggle="modal"
+                        data-target="#exampleModal">
+                    Launch Book Appointement
+                </button>
+                <button type="button" id="btnBookAppointement" class="btn btn-info">Book Appointement</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Doctor Appointement Info</h4>
+            </div>
+            <div class="modal-body">
+                <strong>
+                    Dr Etedal Mohammad Hifzi Aamri
+                    Toronto General Hospital
+                </strong><br />
+                200 Elizabeth St, Toronto, ON M5G 2C4<br />
+                patientrelations@uhn.ca<br />
+                +1-(416) 340-4800<br /><br />
+                Open 24 hours
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Email</button>
+                <button type="button" class="btn btn-primary">Send Mobile SMS</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
