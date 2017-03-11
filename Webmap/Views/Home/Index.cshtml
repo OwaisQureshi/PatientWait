@@ -1,7 +1,7 @@
-﻿@*<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhAMnKfxixuEJiW975LHOfJADNu-hFd5A&libraries=places&callback=initAutocomplete" type="text/javascript"></script>*@
+﻿
 
 @section Styles
-{
+    {
     <style>
         img {
             max-width: none;
@@ -21,7 +21,7 @@
             background-color: white;
         }
 
-        #txtSearch {
+        * #txtSearch {
             height: 40px;
             width: 200px;
         }
@@ -36,14 +36,13 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
-            @*<label for="txtSearch">Search for Clinics</label>*@
             <input type="search" class="form-control input-lg" id="txtSearch" placeholder="Search for Clinics">
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-6" @*style="border: 1px solid black;"*@>
+    <div class="col-md-6">
         <div class="col-md-12">
             <table>
                 <tr>
@@ -75,27 +74,6 @@
                                         <td>questions@sunnybrook.ca</td>
                                         <td>+1-(416) 480-6100</td>
                                         <td>9:00 am to 4:30 pm</td>
-                                    </tr>
-                                    <tr>
-                                        <td>St Michael's Hospital</td>
-                                        <td>30 Bond St, Toronto, ON M5B 1W8</td>
-                                        <td>canzians@smh.ca</td>
-                                        <td>+1-(416) 360-4000</td>
-                                        <td>Open 24 hours</td>
-                                    </tr>
-                                    <tr>
-                                        <td>The Scarborough Hospital</td>
-                                        <td>3050 Lawrence Ave E, Scarborough, ON M1P 2V5</td>
-                                        <td>foundation@tsh.to</td>
-                                        <td>+1-(416) 438-2911</td>
-                                        <td>Open 24 hours</td>
-                                    </tr>
-                                    <tr>
-                                        <td>North York General Hospital</td>
-                                        <td>4001 Leslie St, North York, ON M2K 1E1</td>
-                                        <td>hr@nygh.on.ca</td>
-                                        <td>+1-(416) 756-6000</td>
-                                        <td>Open 24 hours</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -133,27 +111,6 @@
                                         <td>+1-(416) 340-4800</td>
                                         <td>Open 24 hours</td>
                                     </tr>
-                                    <tr>
-                                        <td>Dr. Caldwell, Forrest Harvey</td>
-                                        <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                        <td>patientrelations@uhn.ca</td>
-                                        <td>+1-(416) 340-4800</td>
-                                        <td>Open 24 hours</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dr. Chang, Li-Hsin</td>
-                                        <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                        <td>patientrelations@uhn.ca</td>
-                                        <td>+1-(416) 340-4800</td>
-                                        <td>Open 24 hours</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dr. Bakker, Dorothy Jane</td>
-                                        <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                        <td>patientrelations@uhn.ca</td>
-                                        <td>+1-(416) 340-4800</td>
-                                        <td>Open 24 hours</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -176,7 +133,10 @@
                     <td>
                         <div>
                             @Html.ActionLink("List of Clinics", "Index", "CLINICs")<br />
-                            @*@Html.ActionLink("List of Doctors", "Index", "DOCTORs")*@
+                            @Html.ActionLink("Using Google Places List of Hospitals", "Hospital", "Home")<br />
+                            @*@Html.Raw(File.ReadAllText(Server.MapPath("~/Views/Home/Hotel.html")))
+                            @Html.Partial("~/Views/Home/Hotel.cshtml")
+                            @Response.WriteFile(~/Views/Home/Hotel.html)*@                         
                         </div>
                     </td>
                 </tr>
@@ -184,7 +144,7 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="col-md-12" @*style="border: 1px solid black;"*@>
+        <div class="col-md-12">
             <div id="map_canvas" class="google-map-canvas" style="height:350px;"></div>
         </div>
     </div>

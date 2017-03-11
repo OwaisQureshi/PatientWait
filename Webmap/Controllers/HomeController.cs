@@ -26,5 +26,18 @@ namespace Webmap.Controllers
 
             return View();
         }
+
+        //Render HTML files
+        public ActionResult Hospital()
+        {
+            var result = new FilePathResult("~/Views/Home/Hospital.html", "text/html");
+            return result;
+        }
+
+        public ActionResult MyHtml(string htmlPageName)
+        {
+            var result = new FilePathResult($"~/Views/{htmlPageName}.html", "text/html");
+            return result;
+        }
     }
 }
