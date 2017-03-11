@@ -7,11 +7,10 @@
 <h2>DOCTOR Details</h2>
 
 <div>
-    <h4>DOCTOR</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.DOCTORNAME)
+           Doctor Name
         </dt>
 
         <dd>
@@ -19,7 +18,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DOCTORADDRESS)
+            Address
         </dt>
 
         <dd>
@@ -27,7 +26,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DOCTOREmail)
+            Email
         </dt>
 
         <dd>
@@ -35,7 +34,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DOCTORTelePhone)
+            TelePhone
         </dt>
 
         <dd>
@@ -43,7 +42,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DOCTORWorkingHours)
+            WorkingHours
         </dt>
 
         <dd>
@@ -107,13 +106,10 @@
 <table class="table">
     <tr>
         <th>
-            Doctor Name
+            Patient Name
         </th>
         <th>
-            Patient Comments
-        </th>
-        <th>
-            Back To Clinic Details
+            Comments
         </th>
     </tr>
 
@@ -121,17 +117,17 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DOCTORNAME)
+                @Html.DisplayFor(modelItem => item.USERNAME)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.USERCOMMENTS)
             </td>
-            <td>
-                @Html.ActionLink("Back To Clinics Details", "Details" + "/" + item.ClinicID, "CLINICs")
-            </td>
         </tr>
     }
 </table>
+           
+@Html.ActionLink("Back To Clinics Details", "Details" + "/" + Model.ClinicID, "CLINICs")            
+
 <div>
     <table>
         <tr>
@@ -139,8 +135,7 @@
                 <button type="button" id="btnShowPopup" class="btn btn-primary" data-toggle="modal"
                         data-target="#exampleModal">
                     Launch Book Appointement
-                </button>
-                <button type="button" id="btnBookAppointement" class="btn btn-info">Book Appointement</button>
+                </button>                
             </td>
         </tr>
     </table>
