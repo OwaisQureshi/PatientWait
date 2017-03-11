@@ -335,15 +335,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="DBScripts\CLINICS.sql" />
-    <Content Include="DBScripts\DATABASE.sql" />
-    <Content Include="DBScripts\DOCTORS.sql" />
-    <Content Include="DBScripts\DOCTORSUSERRATINGS.sql" />
     <Content Include="DBScripts\MIDTERM2\CLINICS.sql" />
     <Content Include="DBScripts\MIDTERM2\DATABASE.sql" />
     <Content Include="DBScripts\MIDTERM2\DOCTORS.sql" />
     <Content Include="DBScripts\MIDTERM2\USER.sql" />
-    <Content Include="DBScripts\USER.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -373,13 +368,11 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="DBScripts\MIDTERM2\Data.xlsx" />
-    <Content Include="DBScripts\MIDTERM2\DBPATIENTNOWAIT_MIDTERM2.bak" />
-    <Content Include="DBScripts\DBPATIENTNOWAIT.bak" />
-    <Content Include="DBScripts\Data.xlsx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="DBScripts\MIDTERM2\DBPATIENTNOWAIT.bak" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\home\index.js" />
     <Content Include="Scripts\home\mapPlaces.js" />
