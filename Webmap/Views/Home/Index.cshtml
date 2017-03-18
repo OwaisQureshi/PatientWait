@@ -1,4 +1,6 @@
-﻿@section Styles
+﻿
+@model Webmap.Models.Email
+@section Styles
     {
     <style>
         img {
@@ -53,108 +55,99 @@
 <div class="row">
     <div class="col-md-6">
         <div class="col-md-12">
-            <div id="listing">
-                <table id="resultsTable">
-                    <tbody id="results"></tbody>
-                </table>
-            </div>
-            @*<table>
-                    <tr>
-                        <td width="60%">
-                            <div id="clinicslist" style="display:none;">
-                                <h2>Clinics List - Location Toronto</h2>
-                                <p>The table displays Nearest clinics information along with correct operating hours.</p>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Clinic Name</th>
-                                            <th>Address</th>
-                                            <th>Email</th>
-                                            <th>Contact Details</th>
-                                            <th>Operating Hours</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Toronto General Hospital</td>
-                                            <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                            <td>patientrelations@uhn.ca</td>
-                                            <td>+1-(416) 340-4800</td>
-                                            <td>Open 24 hours</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sunnybrook Health Sciences Centre</td>
-                                            <td>2075 Bayview Ave, Toronto, ON M4N 3M5</td>
-                                            <td>questions@sunnybrook.ca</td>
-                                            <td>+1-(416) 480-6100</td>
-                                            <td>9:00 am to 4:30 pm</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </td>
-                        <td width="40%"></td>
-                        <td width="40%"></td>
-                    </tr>
-                    <tr>
-                        <td width="100%">
-                            <div id="doctorlist" style="display:none;">
-                                <p>The table displays doctors information along with correct operating hours.</p>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Doctor Name</th>
-                                            <th>Address</th>
-                                            <th>Email</th>
-                                            <th>Contact Details</th>
-                                            <th>Operating Hours</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Doctor Etedal Mohammad Hifzi Aamri</td>
-                                            <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                            <td>patientrelations@uhn.ca</td>
-                                            <td>+1-(416) 340-4800</td>
-                                            <td>Open 24 hours</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dr. Mary-Anne Wilhelmina</td>
-                                            <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                            <td>patientrelations@uhn.ca</td>
-                                            <td>+1-(416) 340-4800</td>
-                                            <td>Open 24 hours</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%">
-                            <button type="button" id="btnShowPopup" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#exampleModal">
-                                Launch demo modal
-                            </button>
-                            <button type="button" id="btnClinicsInfo" class="btn btn-info">ClinicsInfo</button>
-                            <button type="button" id="btnDoctorsInfo" class="btn btn-primary">DoctorsInfo</button>
-                            <a href="#" class="btn btn-success btn-lg">
-                                <span class="glyphicon glyphicon-print"></span> Print
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                @Html.ActionLink("List of Clinics", "Index", "CLINICs")<br />
-                                @Html.ActionLink("Using Google Places List of Hospitals", "Hospital", "Home")<br />
-                                @Html.Raw(File.ReadAllText(Server.MapPath("~/Views/Home/Hotel.html")))
-                                @Html.Partial("~/Views/Home/Hotel.cshtml")
-                                @Response.WriteFile(~/Views/Home/Hotel.html)
-                            </div>
-                        </td>
-                    </tr>
-                </table>*@
+            <table>
+                <tr>
+                    <td width="60%">
+                        <div id="clinicslist" style="display:none;">
+                            <h2>Clinics List - Location Toronto</h2>
+                            <p>The table displays Nearest clinics information along with correct operating hours.</p>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Clinic Name</th>
+                                        <th>Address</th>
+                                        <th>Email</th>
+                                        <th>Contact Details</th>
+                                        <th>Operating Hours</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Toronto General Hospital</td>
+                                        <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                        <td>patientrelations@uhn.ca</td>
+                                        <td>+1-(416) 340-4800</td>
+                                        <td>Open 24 hours</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                    <td width="40%"></td>
+                    <td width="40%"></td>
+                </tr>
+                <tr>
+                    <td width="100%">
+                        <div id="doctorlist" style="display:none;">
+                            <p>The table displays doctors information along with correct operating hours.</p>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Doctor Name</th>
+                                        <th>Address</th>
+                                        <th>Email</th>
+                                        <th>Contact Details</th>
+                                        <th>Operating Hours</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Doctor Etedal Mohammad Hifzi Aamri</td>
+                                        <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
+                                        <td>patientrelations@uhn.ca</td>
+                                        <td>+1-(416) 340-4800</td>
+                                        <td>Open 24 hours</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%">
+                        <button type="button" id="btnShowPopup" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModal">
+                            Launch demo modal
+                        </button>
+                        <button type="button" id="btnClinicsInfo" class="btn btn-info">Clinics Info</button>
+                        <button type="button" id="btnDoctorsInfo" class="btn btn-primary">Doctors Info</button>
+                        <button type="button" id="btnSendTestEmail" class="btn btn-primary" onclick="location.href='@Url.Action("Email", "Home")'" >Send Test Email</button>
+                        @*<button type="button" id="btnSendEmail" class="btn btn-primary" onclick="location.href='@Url.Action("Emails", "Home")?patientname=' + document.getElementById('txtPatientName').value">Send Email</button>*@
+                                     
+                        @*Html.TextBoxFor(m=>m.patientname)*@
+                        <button type="button" id="btnSendEmail" class="btn btn-primary" onclick="location.href='@Url.Action("Emails", "Home")'" >Send Final Email</button>
+                        @*<button type="button" onclick="location.href='@Url.Action("MyAction", "MyController")'">*@
+</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            @Html.Label("Enter Patient Email Address")
+                            @Html.TextBox("txtPatientEmailAddress")
+                            @*<input type="search" class="form-control input-lg" id="txtDoctorName" placeholder="Enter DoctorName">
+                            <input type="search" class="form-control input-lg" id="txtDoctorEmailAddress" placeholder="Enter Doctor Email Address">
+                            <input type="search" class="form-control input-lg" id="txtAppointementDate" placeholder="Enter AppointementDate">
+                            <input type="search" class="form-control input-lg" id="txtAppointementTime" placeholder="Enter AppointementTime">*@
+
+                            @Html.ActionLink("List of Clinics", "Index", "CLINICs")<br />
+                            @Html.ActionLink("Using Google Places List of Hospitals", "Hospital", "Home")<br />
+                            @*@Html.Raw(File.ReadAllText(Server.MapPath("~/Views/Home/Hotel.html")))
+                            @Html.Partial("~/Views/Home/Hotel.cshtml")
+                            @Response.WriteFile(~/Views/Home/Hotel.html)*@                         
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="col-md-6">
