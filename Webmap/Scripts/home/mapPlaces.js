@@ -10,6 +10,9 @@
     });
 });
 
+//different icons for place.types
+//http://stackoverflow.com/questions/11775774/seperate-marker-for-each-location-type-in-google-places-api
+
 var countries = {
     'ca': {
         center: { lat: 62, lng: -110.0 },
