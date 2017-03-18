@@ -169,13 +169,13 @@
                     <td class="iw_attribute_name">Website:</td>
                     <td id="iw-website"></td>
                 </tr>
-                <tr id="iw-place-row" class="iw_table_row">
+                <tr id="iw-website-row" class="iw_table_row">
                     <td class="iw_attribute_name">PlaceID:</td>
-                    <td id="iw-place"></td>
+                    <td id="iw-place_id"></td>
                 </tr>
-                <tr id="iw-location-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Location Langitude:</td>
-                    <td id="iw-location"></td>
+                <tr id="iw-website-row" class="iw_table_row">
+                    <td class="iw_attribute_name">Location:</td>
+                    <td id="iw-geometry.location"></td>
                 </tr>
             </table>
         </div>
@@ -449,7 +449,7 @@
         if (place.website) {
           var fullUrl = place.website;
           var website = hostnameRegexp.exec(place.website);
-          if (website == null) {
+          if (website === null) {
             website = 'http://' + place.website + '/';
             fullUrl = website;
           }
@@ -457,29 +457,6 @@
           document.getElementById('iw-website').textContent = website;
         } else {
           document.getElementById('iw-website-row').style.display = 'none';
-        }
-
-          
-        if (place.getLatLng) {
-            var location = place.getLatLng;
-            if (location == null) {
-                location = '';                
-            }
-            document.getElementById('iw-location-row').style.display = '';
-            document.getElementById('iw-location').textContent = location;
-        } else {
-            document.getElementById('iw-location-row').style.display = 'none';
-        }
-
-        if (place.place_id) {
-            var place_id = place.place_id;
-            if (place_id == null) {
-                place_id = '';                
-            }
-            document.getElementById('iw-location-row').style.display = '';
-            document.getElementById('iw-location').textContent = place_id;
-        } else {
-            document.getElementById('iw-location-row').style.display = 'none';
         }
       }
     </script>
