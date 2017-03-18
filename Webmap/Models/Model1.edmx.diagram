@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="f3b447d5386f412291ef87db1c898789" Name="Diagram1">
         <EntityTypeShape EntityType="DBPATIENTNOWAITDataModel.sysdiagram" Width="1.5" PointX="0.625" PointY="3.5" />
-        <EntityTypeShape EntityType="DBPATIENTNOWAITDataModel.CLINIC" Width="1.5" PointX="2.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DBPATIENTNOWAITDataModel.CLINIC" Width="1.5" PointX="2.375" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBPATIENTNOWAITDataModel.USER" Width="1.5" PointX="0.625" PointY="0.75" />
         <EntityTypeShape EntityType="DBPATIENTNOWAITDataModel.DOCTORSUSERRATING" Width="1.5" PointX="7.875" PointY="1" />
         <EntityTypeShape EntityType="DBPATIENTNOWAITDataModel.DOCTOR" Width="2" PointX="4.625" PointY="0.625" />
