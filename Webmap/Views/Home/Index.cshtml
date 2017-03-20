@@ -59,112 +59,32 @@
                 <table id="resultsTable">
                     <tbody id="results"></tbody>
                 </table>
-            </div>
-            @*<table>
-                    <tr>
-                        <td width="60%">
-                            <div id="clinicslist" style="display:none;">
-                                <h2>Clinics List - Location Toronto</h2>
-                                <p>The table displays Nearest clinics information along with correct operating hours.</p>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Clinic Name</th>
-                                            <th>Address</th>
-                                            <th>Email</th>
-                                            <th>Contact Details</th>
-                                            <th>Operating Hours</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Toronto General Hospital</td>
-                                            <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                            <td>patientrelations@uhn.ca</td>
-                                            <td>+1-(416) 340-4800</td>
-                                            <td>Open 24 hours</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sunnybrook Health Sciences Centre</td>
-                                            <td>2075 Bayview Ave, Toronto, ON M4N 3M5</td>
-                                            <td>questions@sunnybrook.ca</td>
-                                            <td>+1-(416) 480-6100</td>
-                                            <td>9:00 am to 4:30 pm</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </td>
-                        <td width="40%"></td>
-                        <td width="40%"></td>
-                    </tr>
-                    <tr>
-                        <td width="100%">
-                            <div id="doctorlist" style="display:none;">
-                                <p>The table displays doctors information along with correct operating hours.</p>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Doctor Name</th>
-                                            <th>Address</th>
-                                            <th>Email</th>
-                                            <th>Contact Details</th>
-                                            <th>Operating Hours</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Doctor Etedal Mohammad Hifzi Aamri</td>
-                                            <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                            <td>patientrelations@uhn.ca</td>
-                                            <td>+1-(416) 340-4800</td>
-                                            <td>Open 24 hours</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dr. Mary-Anne Wilhelmina</td>
-                                            <td>200 Elizabeth St, Toronto, ON M5G 2C4</td>
-                                            <td>patientrelations@uhn.ca</td>
-                                            <td>+1-(416) 340-4800</td>
-                                            <td>Open 24 hours</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="100%">
-                            <button type="button" id="btnShowPopup" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#exampleModal">
-                                Launch demo modal
-                            </button>
-                            <button type="button" id="btnClinicsInfo" class="btn btn-info">ClinicsInfo</button>
-                            <button type="button" id="btnDoctorsInfo" class="btn btn-primary">DoctorsInfo</button>
-                            <a href="#" class="btn btn-success btn-lg">
-                                <span class="glyphicon glyphicon-print"></span> Print
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                @Html.ActionLink("List of Clinics", "Index", "CLINICs")<br />
-                                @Html.ActionLink("Using Google Places List of Hospitals", "Hospital", "Home")<br />
-                                @Html.Raw(File.ReadAllText(Server.MapPath("~/Views/Home/Hotel.html")))
-                                @Html.Partial("~/Views/Home/Hotel.cshtml")
-                                @Response.WriteFile(~/Views/Home/Hotel.html)
-                            </div>
-                        </td>
-                    </tr>
-                </table>*@
+            </div>           
         </div>
     </div>
     <div class="col-md-6">
         <div class="col-md-12">
             <div id="map_canvas" class="google-map-canvas" style="height:350px;"></div>
+            @*@Html.ActionLink("List of Clinics", "Index", "CLINICs")<br />
+            <button type="button" id="btnSendTestEmail" class="btn btn-primary" onclick="location.href='@Url.Action("Email", "Home")'">Send Email</button>*@
+            @*<button type="button" id="btnSendEmail" class="btn btn-primary" onclick="location.href='@Url.Action("Emails", "Home")?patientname=' + document.getElementById('txtPatientName').value">Send Email</button>*@
+
+
         </div>
     </div>
 </div>
+@*<div>
+    <table>
+        <tr>
+            <td width="100%">
+                <button type="button" id="btnShowPopup" class="btn btn-primary" data-toggle="modal"
+                        data-target="#exampleModal">
+                    Launch Book Appointement
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>*@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -174,15 +94,46 @@
                 <h4 class="modal-title" id="myModalLabel">Clinic Info</h4>
             </div>
             <div class="modal-body">
-                <strong>
-                    Toronto General Hospital
-                </strong><br />
-                200 Elizabeth St, Toronto, ON M5G 2C4<br />
-                patientrelations@uhn.ca<br />
-                +1-(416) 340-4800<br /><br />
-                Open 24 hours
+                    <div id="info-content">
+                        <table>
+                            <tr id="iw-url-row" class="iw_table_row">
+                                <td id="iw-icon" class="iw_table_icon"></td>
+                                <td id="iw-url"></td>
+                            </tr>
+                            <tr id="iw-address-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Address:</td>
+                                <td id="iw-address"></td>
+                            </tr>
+                            <tr id="iw-phone-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Telephone:</td>
+                                <td id="iw-phone"></td>
+                            </tr>
+                            <tr id="iw-rating-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Rating:</td>
+                                <td id="iw-rating"></td>
+                            </tr>
+                            <tr id="iw-website-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Website:</td>
+                                <td id="iw-website"></td>
+                            </tr>
+                            <tr id="iw-workinghours-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Working Hours:</td>
+                                <td id="iw-workinghours"></td>
+                            </tr>
+                            <tr id="iw-opennow-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Open Now:</td>
+                                <td id="iw-opennow"></td>
+                            </tr>
+                            <tr id="iw-placeid-row" class="iw_table_row">
+                                <td class="iw_attribute_name">PlaceID:</td>
+                                <td id="iw-placeid"></td>
+                            </tr>
+                        </table>
+                    </div>
             </div>
             <div class="modal-footer">
+                <button type="button" id="btnEmail" class="btn btn-primary" onclick="location.href='@Url.Action("Email", "Home")'">Send Email</button>
+                <button type="button" id="btnDoctors" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "CLINICs")'">Doctors List</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
@@ -191,7 +142,7 @@
 </div>
 
 <div style="display: none">
-    <div id="info-content">
+    <div id="info-content2">
         <table>
             <tr id="iw-url-row" class="iw_table_row">
                 <td id="iw-icon" class="iw_table_icon"></td>
@@ -212,15 +163,7 @@
             <tr id="iw-website-row" class="iw_table_row">
                 <td class="iw_attribute_name">Website:</td>
                 <td id="iw-website"></td>
-            </tr>
-            <tr id="iw-website-row" class="iw_table_row">
-                <td class="iw_attribute_name">PlaceID:</td>
-                <td id="iw-place_id"></td>
-            </tr>
-            <tr id="iw-website-row" class="iw_table_row">
-                <td class="iw_attribute_name">Location:</td>
-                <td id="iw-geometry.location"></td>
-            </tr>
+            </tr> 
         </table>
     </div>
 </div>

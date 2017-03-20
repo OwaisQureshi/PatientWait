@@ -373,6 +373,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="DBScripts\MIDTERM2\DBPATIENTNOWAIT.bak" />
+    <Content Include="DBScripts\DBPATIENTNOWAIT.bak" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\home\index.js" />
     <Content Include="Scripts\home\mapPlaces.js" />
