@@ -27,6 +27,7 @@ var countryRestrict = { 'country': 'ca' };
 var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
 var hostnameRegexp = new RegExp('^https?://.+?/');
 
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map_canvas'),
         {
@@ -121,6 +122,7 @@ function initMap() {
         var tr = document.createElement('tr');
         tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
         tr.onclick = function () {
+            //console.log(markers);
             google.maps.event.trigger(markers[i], 'click');
         };
 

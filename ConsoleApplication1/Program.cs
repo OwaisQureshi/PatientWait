@@ -3,6 +3,7 @@ using DBLayer.POCO;
 using LiteDB;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace ConsoleApplication1 {
     class Program {
