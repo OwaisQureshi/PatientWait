@@ -21,6 +21,7 @@ var countries = {
 };
 
 var map, places, infoWindow;
+var pnwcurrgoogledata; //Current Google Data
 var markers = [];
 var autocomplete;
 var countryRestrict = { 'country': 'ca' };
@@ -77,8 +78,10 @@ function initMap() {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 clearResults();
                 clearMarkers();
+                if (results.length > 0) { pnwcurrgoogledata = results; }
                 // Create a marker for each hotel found, and
-                // assign a letter of the alphabetic to each marker icon.
+                // assign a letter of the alphabetic to each marker icon.            
+
                 for (var i = 0; i < results.length; i++) {
                     var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
                     var markerIcon = MARKER_PATH + markerLetter + '.png';
@@ -156,10 +159,16 @@ function initMap() {
                 if (status !== google.maps.places.PlacesServiceStatus.OK) {
                     return;
                 }
-                infoWindow.open(map, marker);
+                //window.alert("PlaceID" + marker.placeResult.place_id);
+                $('#exampleModal').modal('show');
                 buildIWContent(place);
+
+                //infoWindow.open(map, marker);
+                //buildIWContent(place);
             });
     }
+
+
 
     // Load the place information into the HTML elements used by the info window.
     function buildIWContent(place) {
@@ -178,7 +187,7 @@ function initMap() {
         } else {
             document.getElementById('iw-phone-row').style.display = 'none';
         }
-
+        
         // Assign a five-star rating to the hotel, using a black star ('&#10029;')
         // to indicate the rating the hotel has earned, and a white star ('&#10025;')
         // for the rating points not achieved.
@@ -210,6 +219,40 @@ function initMap() {
             document.getElementById('iw-website').textContent = website;
         } else {
             document.getElementById('iw-website-row').style.display = 'none';
+        }
+
+        if (place.opening_hours.weekday_text) {
+            document.getElementById('iw-workinghours-row').style.display = '';
+            document.getElementById('iw-workinghours').innerHTML = place.opening_hours.weekday_text;
+        }
+        else {
+            document.getElementById('iw-workinghours-row').style.display = 'none';
+        }
+
+        if (place.opening_hours.open_now) {
+            var opennow = place.opening_hours.open_now;
+            //window.alert(opennow);
+            if (opennow == 'true') {
+                opennow = 'Open';
+            }
+            else {
+                if (opennow == 'false') {
+                    opennow = 'Closed';
+                }
+            }
+            document.getElementById('iw-opennow-row').style.display = '';
+            document.getElementById('iw-opennow').innerHTML = opennow;//place.opening_hours.open_now;
+        }
+        else {
+            document.getElementById('iw-opennow-row').style.display = 'none';
+        }
+
+        if (place.place_id) {
+            document.getElementById('iw-placeid-row').style.display = '';
+            document.getElementById('iw-placeid').innerHTML = place.place_id;
+        }
+        else {
+            document.getElementById('iw-placeid-row').style.display = 'none';
         }
     }
 

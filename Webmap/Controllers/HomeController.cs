@@ -1,4 +1,10 @@
 ﻿using System.Web.Mvc;
+using System.Data;
+using System.Data.Entity;
+using System.Threading.Tasks;
+using System.Net;
+using System.Net.Mail;
+using Webmap.Models;
 using GoogleMapsApi;
 using System.Configuration;
 using RestSharp;
@@ -30,6 +36,24 @@ namespace Webmap.Controllers {
 
         public ActionResult MyHtml(string htmlPageName) {
             var result = new FilePathResult($"~/Views/{htmlPageName}.html", "text/html");
+            return result;
+        }
+
+        public ActionResult Email()
+        {
+            try
+            {
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("patientnowait", "kangaroo1234");
+                smtp.EnableSsl = true;
+                smtp.Send("patientnowait@gmail.com", "abhijitbavdhankar@gmail.com", "Subject - Pateint No Wait Mail", "Email Body - Pateint No WaitTest Mail");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            var result = new FilePathResult("~/Views/Home/Hospital.html", "text/html");
             return result;
         }
 

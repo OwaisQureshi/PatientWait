@@ -57,15 +57,32 @@
                 <table id="resultsTable">
                     <tbody id="results"></tbody>
                 </table>
-            </div>
+            </div>           
         </div>
     </div>
     <div class="col-md-6">
         <div class="col-md-12">
             <div id="map_canvas" class="google-map-canvas" style="height:350px;"></div>
+            @*@Html.ActionLink("List of Clinics", "Index", "CLINICs")<br />
+            <button type="button" id="btnSendTestEmail" class="btn btn-primary" onclick="location.href='@Url.Action("Email", "Home")'">Send Email</button>*@
+            @*<button type="button" id="btnSendEmail" class="btn btn-primary" onclick="location.href='@Url.Action("Emails", "Home")?patientname=' + document.getElementById('txtPatientName').value">Send Email</button>*@
+
+
         </div>
     </div>
 </div>
+@*<div>
+    <table>
+        <tr>
+            <td width="100%">
+                <button type="button" id="btnShowPopup" class="btn btn-primary" data-toggle="modal"
+                        data-target="#exampleModal">
+                    Launch Book Appointement
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>*@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -75,15 +92,46 @@
                 <h4 class="modal-title" id="myModalLabel">Clinic Info</h4>
             </div>
             <div class="modal-body">
-                <strong>
-                    Toronto General Hospital
-                </strong><br />
-                200 Elizabeth St, Toronto, ON M5G 2C4<br />
-                patientrelations@uhn.ca<br />
-                +1-(416) 340-4800<br /><br />
-                Open 24 hours
+                    <div id="info-content">
+                        <table>
+                            <tr id="iw-url-row" class="iw_table_row">
+                                <td id="iw-icon" class="iw_table_icon"></td>
+                                <td id="iw-url"></td>
+                            </tr>
+                            <tr id="iw-address-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Address:</td>
+                                <td id="iw-address"></td>
+                            </tr>
+                            <tr id="iw-phone-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Telephone:</td>
+                                <td id="iw-phone"></td>
+                            </tr>
+                            <tr id="iw-rating-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Rating:</td>
+                                <td id="iw-rating"></td>
+                            </tr>
+                            <tr id="iw-website-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Website:</td>
+                                <td id="iw-website"></td>
+                            </tr>
+                            <tr id="iw-workinghours-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Working Hours:</td>
+                                <td id="iw-workinghours"></td>
+                            </tr>
+                            <tr id="iw-opennow-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Open Now:</td>
+                                <td id="iw-opennow"></td>
+                            </tr>
+                            <tr id="iw-placeid-row" class="iw_table_row">
+                                <td class="iw_attribute_name">PlaceID:</td>
+                                <td id="iw-placeid"></td>
+                            </tr>
+                        </table>
+                    </div>
             </div>
             <div class="modal-footer">
+                <button type="button" id="btnEmail" class="btn btn-primary" onclick="location.href='@Url.Action("Email", "Home")'">Send Email</button>
+                <button type="button" id="btnDoctors" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "CLINICs")'">Doctors List</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
@@ -92,7 +140,7 @@
 </div>
 
 <div style="display: none">
-    <div id="info-content">
+    <div id="info-content2">
         <table>
             <tr id="iw-url-row" class="iw_table_row">
                 <td id="iw-icon" class="iw_table_icon"></td>
