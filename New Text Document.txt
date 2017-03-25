@@ -1,0 +1,6 @@
+https://www.youtube.com/watch?v=x60IdhRITWA
+http://aboutcode.net/postal/
+https://www.aspsnippets.com/Articles/Send-Email-using-SMTP-Server-in-ASPNet-MVC.aspx
+http://docs.hangfire.io/en/latest/tutorials/send-email.html
+http://stackoverflow.com/questions/26784366/how-to-send-email-from-mvc-5-application
+https://www.mikesdotnetting.com/article/268/how-to-send-email-in-asp-net-mvc

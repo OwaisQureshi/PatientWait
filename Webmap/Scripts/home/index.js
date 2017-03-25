@@ -33,6 +33,34 @@
         });
 
     });
+
+    $('#btnSendEmail').click(function () {
+       
+        var origins = $('#txtEmailLoc').val();
+
+        $.ajax({
+            url: getEmailURL, //url: "@Url.Content("~/Home/SendEmail")",
+            type: "POST",
+            data: { origin: origins },
+            dataType: "json",
+            success: function (result) {
+                if (result) {
+                    //result = JSON.parse(result);
+                    var htmlStr = '<td>' + result + '</td>'
+                    $('#tblXBody').html(htmlStr);
+                }
+                else {
+                    console.log('In btnEmail.click default');
+                    console.log(result);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+
+    });
 });
 
 function stringFormat() {
