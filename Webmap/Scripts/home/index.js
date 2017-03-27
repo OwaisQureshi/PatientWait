@@ -1,4 +1,7 @@
-﻿$(document).ready(function () {
+﻿//for autocomplete by google location use
+//https://ubilabs.github.io/geocomplete/
+
+$(document).ready(function () {
     stringFormat();
     //var apiKey = 'AIzaSyDttQ9SLD0V_2CM68YksJ18todsgtJn_i4';   
 
