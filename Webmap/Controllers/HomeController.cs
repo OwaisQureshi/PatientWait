@@ -39,7 +39,7 @@ namespace Webmap.Controllers {
             var result = new FilePathResult($"~/Views/{htmlPageName}.html", "text/html");
             return result;
         }
-
+        
         public ActionResult Email()
         {
             try
@@ -57,6 +57,30 @@ namespace Webmap.Controllers {
             var result = new FilePathResult("~/Views/Home/Hospital.html", "text/html");
             return result;
         }
+
+        
+        [HttpPost]
+        public JsonResult GetEmailTime(string origin = "abhijitbavdhankar@gmail.com")
+        {
+            string result = "";
+
+            try { 
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("patientnowait", "kangaroo1234");
+                smtp.EnableSsl = true;
+                smtp.Send("patientnowait@gmail.com", "abhijitbavdhankar@gmail.com", "Subject - Pateint No Wait Mail", "Email Body - Pateint No WaitTest Mail");
+                result = "EMAIL send success.";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                result = "EMAIL send failed";
+            }
+            return Json(result);                        
+        }
+        
 
         [HttpPost]
         public JsonResult GetDistanceTime(string units = "imperial", string origin = "Lakehead University", string dest = "192 Varsity Row") {
