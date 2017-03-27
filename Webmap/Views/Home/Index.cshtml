@@ -97,6 +97,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tab1" data-toggle="tab">Info</a></li>
                         <li><a href="#tab2" data-toggle="tab">Time</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Notification</a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab1">
@@ -171,6 +172,43 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="tab-pane" id="tab3">
+                            <div class="row" id="notification">
+                                <div class="col-md-12">
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <label for="txtEmailLoc">Email</label>
+                                            <input id="txtEmailLoc" type="text" name="name" class="form-control" value="" placeholder="Email Id" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtClinicNameLoc">Clinic Name</label>
+                                            <input id="txtClinicNameLoc" type="text" name="name" class="form-control" value="" placeholder="Clinic name" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtDoctorNameLoc">Doctor Name</label>
+                                            <input id="txtDoctorNameLoc" type="text" name="name" class="form-control" value="" placeholder="Doctor name" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtAppointementDateTimeLoc">Appointement Date and Time</label>
+                                            <input id="txtAppointementDateTimeLoc" type="text" name="name" class="form-control" value="" placeholder="Appointement Date and Time" />
+                                        </div>
+                                        <div class="form-group">
+                                            <button id="btnSendEmail" type="button" class="btn btn-default">Send Email</button>
+                                        </div>
+                                        <table class="table table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <td>Email Status</td>                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr id="tblXBody"></tr>
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -215,44 +253,7 @@
                 </tr>
             </table>
         </div>
-    </div>
-
-    @*<div class="row" id="mapDistance">
-        <div class="col-md-6">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="txtStartLoc">From</label>
-                    <input id="txtStartLoc" type="text" name="name" class="form-control" value="" placeholder="Start Location" />
-                </div>
-                <div class="form-group">
-                    <label for="txtDestination">Destination</label>
-                    <input id="txtDestination" type="text" name="name" class="form-control" value="" placeholder="Destination" />
-                </div>
-                <div class="form-group">
-                    <button id="btnCalculate" type="button" class="btn btn-default">Calculate Distance</button>
-                </div>
-                <div class="form-group">
-                    <label for="txtEmailLoc">Email</label>
-                    <input id="txtEmailLoc" type="text" name="name" class="form-control" value="" placeholder="Email Id" />
-                </div>
-                <div class="form-group">
-                    <button id="btnSendEmail" type="button" class="btn btn-default">Send Email</button>
-                </div>
-            </form>
-        </div>*@
-
-    <div class="col-md-6">
-        <table class="table table-condensed">
-            <thead>
-                <tr>
-                    <td>Email Status</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="tblXBody"></tr>
-            </tbody>
-        </table>
-    </div>
+    </div>    
 </div>
 
 <!-- Enclose the Javascript in a "section" so that it is rendered in the correct order after scripts have been loaded etc -->

@@ -73,10 +73,10 @@ namespace Webmap.Controllers {
                 //MailMessage mail = new MailMessage();
                 string strEmailSubject = " Pateint No Wait Web App Notification";
 
-                string html = "";
-                html += 
-                html.Replace(Environment.NewLine, "<br />");
-                html = html.Replace(Environment.NewLine, "<br />");
+                //string html = "";
+                //html += 
+                //html.Replace(Environment.NewLine, "<br />");
+                //html = html.Replace(Environment.NewLine, "<br />");
 
                 string strEmailBody = " Pateint No Wait Web App" + Environment.NewLine;
                 strEmailBody = strEmailBody + " Hi" + Environment.NewLine;
