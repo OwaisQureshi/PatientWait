@@ -80,9 +80,9 @@ namespace Webmap.Controllers {
 
                 string strEmailBody = " Pateint No Wait Web App" + Environment.NewLine;
                 strEmailBody = strEmailBody + " Hello" + Environment.NewLine;
-                strEmailBody = strEmailBody + " Patient name " + patientname + Environment.NewLine;
-                strEmailBody = strEmailBody + " Patient age " + age + Environment.NewLine;
-                strEmailBody = strEmailBody + " Patient sex " + sex + Environment.NewLine;
+                strEmailBody = strEmailBody + " Patient Name " + patientname + Environment.NewLine;
+                strEmailBody = strEmailBody + " Patient Age " + age + Environment.NewLine;
+                strEmailBody = strEmailBody + " Patient Sex " + sex + Environment.NewLine;
                 strEmailBody = strEmailBody + " You have scheduled Appointement with " + doctorname + "(MD MBBS)(Cancer Specialists Diagnosis)" + Environment.NewLine;
                 strEmailBody = strEmailBody + " of Clinic "  + clinicname + Environment.NewLine;
                 strEmailBody = strEmailBody + " at date and time "  + appointementdatetime + Environment.NewLine;
