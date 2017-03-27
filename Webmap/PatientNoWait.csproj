@@ -461,6 +461,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DBScripts\App_LocalResources\" />
     <Folder Include="Models\App_LocalResources\" />
   </ItemGroup>
   <ItemGroup>

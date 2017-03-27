@@ -38,13 +38,19 @@ $(document).ready(function () {
     });
 
     $('#btnSendEmail').click(function () {
-
+       
+        var patientname = $('#txtPatientNameLoc').val();
+        var age = $('#txtAgeLoc').val();
+        var sex = $('#txtSexLoc').val();
         var origins = $('#txtEmailLoc').val();
+        var clinicname = $('#txtClinicNameLoc').val();
+        var doctorname = $('#txtDoctorNameLoc').val();
+        var appointementdatetime = $('#txtAppointementDateTimeLoc').val();
 
         $.ajax({
             url: getEmailURL, //url: "@Url.Content("~/Home/SendEmail")",
             type: "POST",
-            data: { origin: origins },
+            data: { patientname: patientname, age: age, sex: sex, origin: origins, clinicname: clinicname, doctorname: doctorname, appointementdatetime: appointementdatetime },
             dataType: "json",
             success: function (result) {
                 if (result) {
