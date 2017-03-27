@@ -352,6 +352,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\ajax-loader.gif" />
+    <Content Include="Scripts\mapLibs\jquery.geocomplete.min.js" />
+    <Content Include="Scripts\mapLibs\maplace.min.js" />
+    <Content Include="Scripts\mapLibs\logger.js" />
     <Content Include="Views\Home\Hospital.html" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

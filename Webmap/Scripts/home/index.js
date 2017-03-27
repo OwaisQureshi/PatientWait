@@ -3,9 +3,8 @@
 
 $(document).ready(function () {
     stringFormat();
-    //var apiKey = 'AIzaSyDttQ9SLD0V_2CM68YksJ18todsgtJn_i4';   
+    //var apiKey = 'AIzaSyDttQ9SLD0V_2CM68YksJ18todsgtJn_i4';
 
-    //multiple routes ?
     //display routes on map ?
     $('#btnCalculate').click(function () {
         //send request to google api
@@ -23,6 +22,7 @@ $(document).ready(function () {
                     result = JSON.parse(result);
                     var htmlStr = '<td>' + result.rows[0].elements[0].duration.text + '</td>' + '<td>' + result.rows[0].elements[0].distance.text + '</td>'
                     $('#tblBody').html(htmlStr);
+                    $('#tblTime').show('slow');
                 }
                 else {
                     console.log('In btnCalculate.click default');
@@ -38,7 +38,7 @@ $(document).ready(function () {
     });
 
     $('#btnSendEmail').click(function () {
-       
+
         var origins = $('#txtEmailLoc').val();
 
         $.ajax({
@@ -64,6 +64,14 @@ $(document).ready(function () {
         });
 
     });
+
+    //multiple routes ?
+    //var options = {
+    //    map: "#map-canvas",
+    //    location: "NYC"
+    //};
+
+    //$("#txtStartLoc").geocomplete(options);
 });
 
 function stringFormat() {

@@ -34,6 +34,10 @@
             cursor: pointer;
             /*overflow-x: hidden;*/
         }
+
+        .pac-container {
+            z-index: 1051 !important;
+        }
     </style>
 }
 <div class="row">
@@ -139,37 +143,31 @@
                         </div>
                         <div class="tab-pane" id="tab2">
                             <div class="row" id="mapDistance">
-                                <div class="col-md-12">
-                                    <form class="form-inline">
-                                        <div class="form-group">
-                                            <label for="txtStartLoc">From</label>
-                                            <input id="txtStartLoc" type="text" name="name" class="form-control" value="" placeholder="Start Location" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txtDestination">Destination</label>
-                                            <input id="txtDestination" type="text" name="name" class="form-control" value="" placeholder="Destination" />
-                                        </div>
-                                        <div class="form-group">
-                                            <button id="btnCalculate" type="button" class="btn btn-default">
-                                                <span class="glyphicon glyphicon-search"></span>
-                                            </button>
-                                        </div>
-
-
-                                        <table class="table table-condensed">
-                                            <thead>
-                                                <tr>
-                                                    <td>Est. Time</td>
-                                                    <td>Est. Distance</td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr id="tblBody"></tr>
-                                            </tbody>
-                                        </table>
-                                    </form>
+                                <div class="col-xs-5">
+                                    <label for="txtStartLoc">From</label>
+                                    <input id="txtStartLoc" type="text" name="name" class="form-control googleAutoComplete" value="" placeholder="Start Location" />
+                                </div>
+                                <div class="col-xs-5">
+                                    <label for="txtDestination">Destination</label>
+                                    <input id="txtDestination" type="text" name="name" class="form-control googleAutoComplete" value="" placeholder="Destination" />
+                                </div>
+                                <div class="col-xs-2">
+                                    <button id="btnCalculate" type="button" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
                                 </div>
                             </div>
+                            <table id="tblTime" class="table table-condensed" style="display:none">
+                                <thead>
+                                    <tr>
+                                        <td>Est. Time</td>
+                                        <td>Est. Distance</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="tblBody"></tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -216,31 +214,6 @@
             </table>
         </div>
     </div>
-
-    @*<div class="row" id="mapDistance">
-        <div class="col-md-6">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="txtStartLoc">From</label>
-                    <input id="txtStartLoc" type="text" name="name" class="form-control" value="" placeholder="Start Location" />
-                </div>
-                <div class="form-group">
-                    <label for="txtDestination">Destination</label>
-                    <input id="txtDestination" type="text" name="name" class="form-control" value="" placeholder="Destination" />
-                </div>
-                <div class="form-group">
-                    <button id="btnCalculate" type="button" class="btn btn-default">Calculate Distance</button>
-                </div>
-                <div class="form-group">
-                    <label for="txtEmailLoc">Email</label>
-                    <input id="txtEmailLoc" type="text" name="name" class="form-control" value="" placeholder="Email Id" />
-                </div>
-                <div class="form-group">
-                    <button id="btnSendEmail" type="button" class="btn btn-default">Send Email</button>
-                </div>
-            </form>
-        </div>*@
-
     <div class="col-md-6">
         <table class="table table-condensed">
             <thead>
@@ -262,6 +235,8 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhAMnKfxixuEJiW975LHOfJADNu-hFd5A&libraries=places&callback=initMap" async defer></script>
         <!-- for getting user location (lat and long) -->
         <script src="~/Scripts/home/getMyLocation.js"></script>
+        <script src="~/Scripts/mapLibs/jquery.geocomplete.min.js"></script>
+        <script src="~/Scripts/mapLibs/logger.js"></script>
 
         <script src="~/Scripts/home/mapPlaces.js" type="text/javascript"></script>
         <script src="~/Scripts/home/index.js" type="text/javascript"></script>
