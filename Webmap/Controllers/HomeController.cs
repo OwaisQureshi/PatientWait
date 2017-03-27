@@ -60,7 +60,7 @@ namespace Webmap.Controllers {
 
         
         [HttpPost]
-        public JsonResult GetEmailTime(string origin = "abhijitbavdhankar@gmail.com", string clinicname = "Patient Networks Family Medicine Walk In Clinic", string doctorname = "Dr Swazn Lei", string appointementdatetime = "DATE: 27-MARCH-2017 TIME: 10AM")
+        public JsonResult GetEmailTime(string patientname = "Owais Qureshi", string age = "30yrs", string sex = "Male", string origin = "abhijitbavdhankar@gmail.com", string clinicname = "Patient Networks Family Medicine Walk In Clinic", string doctorname = "Dr Swazn Lei", string appointementdatetime = "DATE: 27-MARCH-2017 TIME: 10AM")
         {
             string result = "";
 
@@ -79,14 +79,17 @@ namespace Webmap.Controllers {
                 //html = html.Replace(Environment.NewLine, "<br />");
 
                 string strEmailBody = " Pateint No Wait Web App" + Environment.NewLine;
-                strEmailBody = strEmailBody + " Hi" + Environment.NewLine;
-                strEmailBody = strEmailBody + " You have scheduled Appointement with " + doctorname + Environment.NewLine;
-                strEmailBody = strEmailBody + " of clinic "  + clinicname + Environment.NewLine;
+                strEmailBody = strEmailBody + " Hello" + Environment.NewLine;
+                strEmailBody = strEmailBody + " Patient name " + patientname + Environment.NewLine;
+                strEmailBody = strEmailBody + " Patient age " + age + Environment.NewLine;
+                strEmailBody = strEmailBody + " Patient sex " + sex + Environment.NewLine;
+                strEmailBody = strEmailBody + " You have scheduled Appointement with " + doctorname + "(MD MBBS)(Cancer Specialists Diagnosis)" + Environment.NewLine;
+                strEmailBody = strEmailBody + " of Clinic "  + clinicname + Environment.NewLine;
                 strEmailBody = strEmailBody + " at date and time "  + appointementdatetime + Environment.NewLine;
                 strEmailBody.Replace(Environment.NewLine, "<br />");
 
                 smtp.Send("patientnowait@gmail.com", origin, strEmailSubject, strEmailBody);
-                result = "EMAIL send success.";
+                result = "EMAIL has been send success for above Appointement.";
             }
             catch (Exception ex)
             {
