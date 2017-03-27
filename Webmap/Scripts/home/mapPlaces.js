@@ -223,7 +223,9 @@ function initMap() {
 
         if (place.opening_hours.weekday_text) {
             document.getElementById('iw-workinghours-row').style.display = '';
-            document.getElementById('iw-workinghours').innerHTML = place.opening_hours.weekday_text;
+            var openingHoursText = place.opening_hours.weekday_text;
+            openingHoursText = openingHoursText.join('<br/>')
+            document.getElementById('iw-workinghours').innerHTML = openingHoursText;
         }
         else {
             document.getElementById('iw-workinghours-row').style.display = 'none';
