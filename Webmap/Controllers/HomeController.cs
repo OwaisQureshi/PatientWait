@@ -60,7 +60,7 @@ namespace Webmap.Controllers {
 
         
         [HttpPost]
-        public JsonResult GetEmailTime(string origin = "abhijitbavdhankar@gmail.com")
+        public JsonResult GetEmailTime(string origin = "abhijitbavdhankar@gmail.com", string clinicname = "Patient Networks Family Medicine Walk In Clinic", string doctorname = "Dr Swazn Lei", string appointementdatetime = "DATE: 27-MARCH-2017 TIME: 10AM")
         {
             string result = "";
 
@@ -70,7 +70,22 @@ namespace Webmap.Controllers {
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new NetworkCredential("patientnowait", "kangaroo1234");
                 smtp.EnableSsl = true;
-                smtp.Send("patientnowait@gmail.com", "abhijitbavdhankar@gmail.com", "Subject - Pateint No Wait Mail", "Email Body - Pateint No WaitTest Mail");
+                //MailMessage mail = new MailMessage();
+                string strEmailSubject = " Pateint No Wait Web App Notification";
+
+                string html = "";
+                html += 
+                html.Replace(Environment.NewLine, "<br />");
+                html = html.Replace(Environment.NewLine, "<br />");
+
+                string strEmailBody = " Pateint No Wait Web App" + Environment.NewLine;
+                strEmailBody = strEmailBody + " Hi" + Environment.NewLine;
+                strEmailBody = strEmailBody + " You have scheduled Appointement with " + doctorname + Environment.NewLine;
+                strEmailBody = strEmailBody + " of clinic "  + clinicname + Environment.NewLine;
+                strEmailBody = strEmailBody + " at date and time "  + appointementdatetime + Environment.NewLine;
+                strEmailBody.Replace(Environment.NewLine, "<br />");
+
+                smtp.Send("patientnowait@gmail.com", origin, strEmailSubject, strEmailBody);
                 result = "EMAIL send success.";
             }
             catch (Exception ex)
