@@ -61,14 +61,24 @@ $(document).ready(function () {
             data: { patientname: patientname, age: age, sex: sex, origin: origins, clinicname: clinicname, doctorname: doctorname, appointementdatetime: appointementdatetime },
             dataType: "json",
             success: function (result) {
-                if (result) {
+                if (result == true) {
                     //result = JSON.parse(result);
-                    var htmlStr = '<td>' + result + '</td>'
-                    $('#tblXBody').html(htmlStr);
+                    //var htmlStr = '<td>' + result + '</td>'
+                    //$('#tblXBody').html(htmlStr);
+                    $("#emailfailed").hide();
+                    $("#emailsuccess").show();
                 }
                 else {
-                    console.log('In btnEmail.click default');
-                    console.log(result);
+                    if (result == false) {
+                        //console.log('In btnEmail.click default');
+                        //console.log(result);
+                        $("#emailfailed").show();
+                        $("#emailsuccess").hide();
+                    }
+                    else {
+                        $("#emailfailed").hide();
+                        $("#emailsuccess").hide();
+                    }
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {

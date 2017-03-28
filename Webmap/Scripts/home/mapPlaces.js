@@ -263,11 +263,11 @@ function initMap() {
         if (place.opening_hours.open_now) {
             var opennow = place.opening_hours.open_now;
             //window.alert(opennow);
-            if (opennow == 'true') {
+            if (opennow ) {
                 opennow = 'Open';
             }
             else {
-                if (opennow == 'false') {
+                if (!opennow) {
                     opennow = 'Closed';
                 }
             }

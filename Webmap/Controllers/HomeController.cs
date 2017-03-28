@@ -62,7 +62,7 @@ namespace Webmap.Controllers {
         [HttpPost]
         public JsonResult GetEmailTime(string patientname = "Owais Qureshi", string age = "30yrs", string sex = "Male", string origin = "abhijitbavdhankar@gmail.com", string clinicname = "Patient Networks Family Medicine Walk In Clinic", string doctorname = "Dr Swazn Lei", string appointementdatetime = "DATE: 27-MARCH-2017 TIME: 10AM")
         {
-            string result = "";
+            bool result = false;
 
             try { 
 
@@ -89,12 +89,11 @@ namespace Webmap.Controllers {
                 strEmailBody.Replace(Environment.NewLine, "<br />");
 
                 smtp.Send("patientnowait@gmail.com", origin, strEmailSubject, strEmailBody);
-                result = "EMAIL has been send success for above Appointement.";
+                result = true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                result = "EMAIL send failed";
+                result = false;
             }
             return Json(result);                        
         }
