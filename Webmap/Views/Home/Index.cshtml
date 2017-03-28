@@ -1,6 +1,10 @@
 ﻿@section Styles
     {
     <style>
+        .top-buffer {
+            margin-top: 20px;
+        }
+
         img {
             max-width: none;
         }
@@ -168,15 +172,13 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-12">
+                                <div class="col-xs-8">
                                     <label for="txtPatientNameLoc">Patient Name</label>
                                     <input id="txtPatientNameLoc" type="text" name="name" class="form-control" value="" placeholder="Patient Name" />
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6">
+                                <div class="col-xs-4">
                                     <label for="txtAgeLoc">Age</label>
-                                    <input id="txtAgeLoc" type="text" name="name" class="form-control" value="" placeholder="Age" />
+                                    <input id="txtAgeLoc" type="text" name="name" class="form-control" min="0" max="200" value="" placeholder="Age" />
                                 </div>
                             </div>
                             <div class="row">
@@ -184,13 +186,12 @@
                                     <label for="txtSexLoc">Sex</label>
                                     <input id="txtSexLoc" type="text" name="name" class="form-control" value="" placeholder="Sex" />
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
+                                <div class="col-xs-6">
                                     <label for="txtEmailLoc">Email</label>
                                     <input id="txtEmailLoc" type="text" name="name" class="form-control" value="" placeholder="Email Id" />
                                 </div>
                             </div>
+         
                             <div class="row">
                                 <div class="col-xs-12">
                                     <label for="txtDoctorNameLoc">Doctor Name</label>
@@ -203,11 +204,13 @@
                                     <input id="txtAppointementDateTimeLoc" type="text" name="name" class="form-control" value="" placeholder="Appointement Date and Time" />
                                 </div>
                             </div>
-                            <div id="emailsuccess" class="alert alert-success" style="display:none">
-                                <strong>Email send successfully.</strong> 
+                            <div class="row top-buffer">
                             </div>
-                            <div idv="emailfailed" class="alert alert-info" style="display:none">
-                                <strong>Email send to failed.</strong> 
+                            <div id="emailsuccess" class="alert alert-success" style="display:none;">
+                                <strong>Email send successfully.</strong>
+                            </div>
+                            <div id="emailfailed" class="alert alert-danger" style="display: none;">
+                                <strong>Email send to failed.</strong>
                             </div>
                             <div>
                                 <button id="btnSendEmail" type="button" class="btn btn-primary">Send Email</button>

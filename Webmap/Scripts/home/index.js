@@ -62,24 +62,25 @@ $(document).ready(function () {
             dataType: "json",
             success: function (result) {
                 if (result == true) {
-                    //result = JSON.parse(result);
-                    //var htmlStr = '<td>' + result + '</td>'
-                    //$('#tblXBody').html(htmlStr);
                     $("#emailfailed").hide();
                     $("#emailsuccess").show();
                 }
-                else {
-                    if (result == false) {
-                        //console.log('In btnEmail.click default');
-                        //console.log(result);
-                        $("#emailfailed").show();
-                        $("#emailsuccess").hide();
-                    }
-                    else {
-                        $("#emailfailed").hide();
-                        $("#emailsuccess").hide();
-                    }
+                else {//Fail
+                    $("#emailfailed").show();
+                    $("#emailsuccess").hide();
                 }
+                //else {
+                //    if (result == false) {
+                //        //console.log('In btnEmail.click default');
+                //        //console.log(result);
+                //        $("#emailfailed").show();
+                //        $("#emailsuccess").hide();
+                //    }
+                //    else {
+                //        $("#emailfailed").hide();
+                //        $("#emailsuccess").hide();
+                //    }
+                //}
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert(xhr.status);
