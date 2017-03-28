@@ -15,7 +15,7 @@ var autocomplete;
 var countryRestrict = { 'country': 'ca' };
 var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
 var hostnameRegexp = new RegExp('^https?://.+?/');
-var geocoder = new google.maps.Geocoder;
+window.geocoder = {};
 
 $(document).ready(function () {
     //initMap();
@@ -29,15 +29,17 @@ $(document).ready(function () {
     });
 
     $('#liTimeTab').click(function () {
-        alert('Owais');
-        //alert(
-        //    geocodePlaceId(geocoder, $('#iw-placeid').text())
-        //    );
+        console.log('inside #liTimeTab');
+        geocodePlaceId();
     });
 
+    $('#my-modal').on('hidden.bs.modal', function () {
+        window.alert('hidden event fired!');
+    });
 });
 
 function initMap() {
+    window.geocoder = new google.maps.Geocoder;
     map = new google.maps.Map(document.getElementById('map_canvas'),
         {
             zoom: countries['ca'].zoom,//3
@@ -295,14 +297,13 @@ function initMap() {
     //}
 }
 
-    function geocodePlaceId(geocoder, placeId) {
-        //var placeId = //document.getElementById('place-id').value;
-        geocoder.geocode({ 'placeId': placeId }, function (results, status) {
-            if (status === 'OK') {
-                if (results[0]) {
-                    //infowindow.setContent(results[0].formatted_address);
-                    return results[0].formatted_address;
-                }
+function geocodePlaceId() {
+    var placeId = $('#iw-placeid').text();
+    geocoder.geocode({ 'placeId': placeId }, function (results, status) {
+        if (status === 'OK') {
+            if (results[0]) {
+                $('#txtDestination').val(results[0].formatted_address);
             }
-        });
-    }
+        }
+    });
+}
