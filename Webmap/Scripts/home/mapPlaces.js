@@ -203,6 +203,14 @@ function initMap() {
             '">' + place.name + '</a></b>';
         document.getElementById('iw-address').textContent = place.vicinity;
 
+        if (place.name) {
+            document.getElementById('iw-clinicname-row').style.display = '';
+            document.getElementById('iw-clinicname').textContent =
+                place.name;
+        } else {
+            document.getElementById('iw-clinicname-row').style.display = 'none';
+        }
+
         if (place.formatted_phone_number) {
             document.getElementById('iw-phone-row').style.display = '';
             document.getElementById('iw-phone').textContent =
