@@ -107,8 +107,6 @@ function initMap() {
                     var textB = b.name.toUpperCase();
                     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
                 });
-                //console.log("results");
-                //console.log(results);
 
                 for (var i = 0; i < results.length; i++) {
                     var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
@@ -152,7 +150,7 @@ function initMap() {
         var markerIcon = MARKER_PATH + markerLetter + '.png';
 
         var tr = document.createElement('tr');
-        tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
+        //tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
         tr.onclick = function () {
             //console.log(markers);
             google.maps.event.trigger(markers[i], 'click');
@@ -265,7 +263,7 @@ function initMap() {
         if (place.opening_hours.open_now) {
             var opennow = place.opening_hours.open_now;
             //window.alert(opennow);
-            if (opennow ) {
+            if (opennow) {
                 opennow = 'Open';
             }
             else {
@@ -295,12 +293,13 @@ function initMap() {
     // Create the autocomplete object, restricting the search to geographical location types.
 
     //}
+    //$("#listing").tinyscrollbar({ axis: "x" });
 }
 
 function geocodePlaceId() {
     var placeId = $('#iw-placeid').text();
     geocoder.geocode({ 'placeId': placeId }, function (results, status) {
-        if (status === 'OK') {
+        if(status === 'OK') {
             if (results[0]) {
                 $('#txtDestination').val(results[0].formatted_address);
             }
