@@ -19,14 +19,14 @@ window.geocoder = {};
 
 $(document).ready(function () {
     //initMap();
-    $("#btnClinicsInfo").click(function () {
-        $("#clinicslist").show();
-    });
-    $("#btnDoctorsInfo").click(function () {
-        $("#clinicslist").hide();
-        $("#doctorlist").show();
-        $("#clinicdetails").show();
-    });
+    //$("#btnClinicsInfo").click(function () {
+    //    $("#clinicslist").show();
+    //});
+    //$("#btnDoctorsInfo").click(function () {
+    //    $("#clinicslist").hide();
+    //    $("#doctorlist").show();
+    //    $("#clinicdetails").show();
+    //});
 
     $('#liTimeTab').click(function () {
         console.log('inside #liTimeTab');
@@ -279,12 +279,12 @@ function initMap() {
         }
 
         if (place.place_id) {
-            document.getElementById('iw-placeid-row').style.display = '';
+            //document.getElementById('iw-placeid-row').style.display = '';
             document.getElementById('iw-placeid').innerHTML = place.place_id;
         }
-        else {
-            document.getElementById('iw-placeid-row').style.display = 'none';
-        }
+        //else {
+            //document.getElementById('iw-placeid-row').style.display = 'none';
+        //}
     }
 
     //    initAutocomplete();
