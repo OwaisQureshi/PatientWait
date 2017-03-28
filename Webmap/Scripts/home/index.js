@@ -38,7 +38,7 @@ $(document).ready(function () {
     });
 
     $('#btnSendEmail').click(function () {
-       
+
         var patientname = $('#txtPatientNameLoc').val();
         var age = $('#txtAgeLoc').val();
         var sex = $('#txtSexLoc').val();
@@ -93,3 +93,4 @@ function stringFormat() {
         };
     }
 }
+

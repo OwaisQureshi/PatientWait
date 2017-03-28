@@ -1,16 +1,4 @@
-﻿$(document).ready(function () {
-    //initMap();
-    $("#btnClinicsInfo").click(function () {
-        $("#clinicslist").show();
-    });
-    $("#btnDoctorsInfo").click(function () {
-        $("#clinicslist").hide();
-        $("#doctorlist").show();
-        $("#clinicdetails").show();
-    });
-});
-
-//different icons for place.types
+﻿//different icons for place.types
 //http://stackoverflow.com/questions/11775774/seperate-marker-for-each-location-type-in-google-places-api
 
 var countries = {
@@ -27,7 +15,27 @@ var autocomplete;
 var countryRestrict = { 'country': 'ca' };
 var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
 var hostnameRegexp = new RegExp('^https?://.+?/');
+var geocoder = new google.maps.Geocoder;
 
+$(document).ready(function () {
+    //initMap();
+    $("#btnClinicsInfo").click(function () {
+        $("#clinicslist").show();
+    });
+    $("#btnDoctorsInfo").click(function () {
+        $("#clinicslist").hide();
+        $("#doctorlist").show();
+        $("#clinicdetails").show();
+    });
+
+    $('#liTimeTab').click(function () {
+        alert('Owais');
+        //alert(
+        //    geocodePlaceId(geocoder, $('#iw-placeid').text())
+        //    );
+    });
+
+});
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map_canvas'),
@@ -40,7 +48,6 @@ function initMap() {
             streetViewControl: false,
             mapTypeId: 'roadmap'
         });
-
     //get the infowindows ui
     infoWindow = new google.maps.InfoWindow({
         content: document.getElementById('info-content')
@@ -91,6 +98,15 @@ function initMap() {
                 if (results.length > 0) { pnwcurrgoogledata = results; }
                 // Create a marker for each hotel found, and
                 // assign a letter of the alphabetic to each marker icon.            
+                //results.sort();
+                window.res = results;
+                results.sort(function (a, b) {
+                    var textA = a.name.toUpperCase();
+                    var textB = b.name.toUpperCase();
+                    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+                });
+                //console.log("results");
+                //console.log(results);
 
                 for (var i = 0; i < results.length; i++) {
                     var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
@@ -111,6 +127,7 @@ function initMap() {
             }
         });
     }
+
 
     function clearMarkers() {
         for (var i = 0; i < markers.length; i++) {
@@ -173,7 +190,7 @@ function initMap() {
                 buildIWContent(place);
             });
     }
-    
+
     // Load the place information into the HTML elements used by the info window.
     function buildIWContent(place) {
         console.log("Place object print");
@@ -191,7 +208,7 @@ function initMap() {
         } else {
             document.getElementById('iw-phone-row').style.display = 'none';
         }
-        
+
         // Assign a five-star rating to the hotel, using a black star ('&#10029;')
         // to indicate the rating the hotel has earned, and a white star ('&#10025;')
         // for the rating points not achieved.
@@ -262,10 +279,22 @@ function initMap() {
         }
     }
 
-//    initAutocomplete();
+    //    initAutocomplete();
 
-  //  function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical location types.
+    //  function initAutocomplete() {
+    // Create the autocomplete object, restricting the search to geographical location types.
 
     //}
 }
+
+    function geocodePlaceId(geocoder, placeId) {
+        //var placeId = //document.getElementById('place-id').value;
+        geocoder.geocode({ 'placeId': placeId }, function (results, status) {
+            if (status === 'OK') {
+                if (results[0]) {
+                    //infowindow.setContent(results[0].formatted_address);
+                    return results[0].formatted_address;
+                }
+            }
+        });
+    }
