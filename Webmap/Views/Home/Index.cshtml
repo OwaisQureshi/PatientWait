@@ -296,7 +296,7 @@
 
 <!-- Enclose the Javascript in a "section" so that it is rendered in the correct order after scripts have been loaded etc -->
 @section scripts {
-    <section class="scripts">
+    @*<section class="scripts">*@
         <!-- for google place API (gets all the places of certain type)-->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhAMnKfxixuEJiW975LHOfJADNu-hFd5A&libraries=places&callback=initMap" async defer></script>
         <!-- for getting user location (lat and long) -->
@@ -310,6 +310,5 @@
             var getDistanceURL = '@Url.Action("GetDistanceTime", "Home")';
             var getEmailURL = '@Url.Action("GetEmailTime", "Home")';
         </script>
-    </section>
-
+    @*</section>*@
 }

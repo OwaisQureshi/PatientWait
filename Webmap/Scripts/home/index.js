@@ -22,7 +22,8 @@ $(document).ready(function () {
                 if (result) {
                     result = JSON.parse(result);
                     var htmlStr = '<td>' + result.rows[0].elements[0].duration.text + '</td>' + '<td>' + result.rows[0].elements[0].distance.text + '</td>'
-                    $('#tblBody').html(htmlStr);
+                    $('#tblTime').show();
+                    $('#tblBody').html(htmlStr);                    
                 }
                 else {
                     console.log('In btnCalculate.click default');
